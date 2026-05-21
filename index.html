@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Title</title>
+    
+    <link rel="stylesheet" href="assets/general-style.css">
+    <link rel="stylesheet" href="assets/index-style.css">
+</head>
+<body>
+
+    <!-- Main content wrapper to push footer down -->
+    <div class="content-wrapper">
+        <header class="sticky-header" id="header">
+            <div class="nav-container">
+                <!-- Left: Brand Assets -->
+                <a href="#" class="brand">
+                    <img src="assets/img/logo1.jpg" alt="Logo" class="logo-img">
+                    <span class="brand-name">Company Name</span>
+                </a>              
+
+                <!-- Right: Navigation Menu -->
+                <nav>
+                    <button class="hamburger" aria-label="Toggle navigation" id="hamburger-btn">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+
+                    <ul class="nav-menu" id="nav-menu">
+                        <!-- About Dropdown Parent -->
+                        <li class="dropdown">
+                            <a href="#" class="nav-link">About <span class="arrow"></span></a>
+                            <ul class="submenu">
+                                <li><a href="#">Company</a></li>
+                                <li><a href="#">Services</a></li>
+                            </ul>
+                        </li>
+                        
+                        <!-- Projects Dropdown Parent -->
+                        <li class="dropdown">
+                            <a href="#" class="nav-link">Projects <span class="arrow"></span></a>
+                            <ul class="submenu">
+                                <li><a href="simulator.html">Building Simulator</a></li>
+                                <li><a href="#">Gallery</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li><a href="#" class="nav-link">Blog</a></li>
+                        <li><a href="#" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section class="hero-section">
+            <!-- The Slider Container -->
+            <div class="hero-slider">
+                <div class="slide active">
+                    <img src="assets/img/slideshow/slide1.png" alt="Slideshow Image 1">
+                </div>
+                <div class="slide">
+                    <img src="assets/img/slideshow/slide2.png" alt="Slideshow Image 2">
+                </div>
+                <div class="slide">
+                    <img src="assets/img/slideshow/slide3.png" alt="Slideshow Image 3">
+                </div>
+            </div>
+
+            <!-- Opaque Overlay Box Content -->
+            <div class="hero-overlay-box">
+                <h1>Exceptional Design</h1>
+                <p>This layout uses smooth crossfade animations to cycle your target background elements automatically while preserving readability scales.</p>
+                <a href="#" class="hero-cta-btn">Explore Projects</a>
+            </div>
+        </section>
+
+        <main class="main-content">
+        <h1>This is Header 1 (EB Garamond)</h1>
+        <p>This is a body paragraph text using the Urbanist font family set to 18px. It is highly readable and designed to wrap fluidly on any screen scale. Scroll down to see the smart sticky header dynamically contract and slide away out of view.</p>
+        
+        <h2>This is Header 2 (EB Garamond)</h2>
+        <p>As you scroll back upward on the trackpad or mouse wheel, notice that the menu reappears instantly so users can jump quickly to another view without scrolling all the way back to the top of the site page layout.</p>
+        <p class="body-small">This is your new 14px Urbanist regular text style. It is ideal for metadata, form helper fields, or copyright footers.</p>
+
+        <h1>This is Header 1 (EB Garamond)</h1>
+        <p>This is a body paragraph text using the Urbanist font family set to 18px. It is highly readable and designed to wrap fluidly on any screen scale. Scroll down to see the smart sticky header dynamically contract and slide away out of view.</p>
+        
+        <h2>This is Header 2 (EB Garamond)</h2>
+        <p>As you scroll back upward on the trackpad or mouse wheel, notice that the menu reappears instantly so users can jump quickly to another view without scrolling all the way back to the top of the site page layout.</p>
+        <p class="body-small">This is your new 14px Urbanist regular text style. It is ideal for metadata, form helper fields, or copyright footers.</p>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Company Name. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/menu-style.js"></script>
+    <script src="assets/index-slideshow.js"></script>
+
+</body>
+</html>

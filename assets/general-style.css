@@ -1,0 +1,479 @@
+/* ==========================================================================
+   1. GOOGLE FONTS IMPORT (FIXED)
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond');   
+@import url('https://fonts.googleapis.com/css?family=Urbanist');
+
+/* ==========================================================================
+   2. GLOBAL RESET & WHITE CANVAS ENFORCEMENT (FIXED)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    background-color: #ffffff !important;
+    min-height: 100vh; /* CHANGED from height: 100% to allow vertical scrolling */
+    margin: 0;
+}
+
+/* Flexbox layout wrapper to keep footer at the bottom */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Fixes the top cutoff by turning off absolute/fixed overlapping */
+.sticky-header {
+    position: sticky !important;
+    top: 0;
+    z-index: 1000;
+}
+
+.content-wrapper {
+    flex: 1 0 auto; /* Pushes the footer down when content is short */
+    display: flex;  /* ADDED to pass the vertical push down to the form */
+    flex-direction: column;
+}
+
+/* Force the form to fill the wrapper so the footer pushes down */
+form {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+footer.site-footer {
+    flex-shrink: 0; /* Prevents the footer from shrinking */
+    margin-top: auto; /* ADDED to guarantee it sits below all content */
+}
+
+/* ==========================================================================
+   3. WEBSITE CONTENT STYLING
+   ========================================================================== */
+.main-content {
+    max-width: 800px;
+    margin: 15px auto 60px auto;
+    padding: 0 20px;
+    background-color: #ffffff; 
+}
+
+h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 15px;
+}
+
+p, span.body-text {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #4b5563;
+    margin-bottom: 30px;
+}
+
+.body-small {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #111827;
+    margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   4. MENU STYLING (NAVBAR)
+   ========================================================================== */
+.sticky-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #ffffff;
+    border-bottom: 5px solid;
+    border-image: linear-gradient(to bottom, #e0e0e0, rgba(224, 224, 224, 0)) 1;
+    transition: padding 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    padding: 12px 40px;
+    transform: translateY(0);
+}
+
+.sticky-header::after {
+    content: '';
+    position: absolute;
+    bottom: -5px; 
+    left: 0;
+    width: 100%;
+    height: 5px; 
+    background: linear-gradient(to bottom, #e0e0e0, rgba(224, 224, 224, 0));
+    pointer-events: none; 
+}
+
+/*
+.sticky-header.shrink {
+    padding: 6px 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+*/
+
+.sticky-header.scroll-down {
+    transform: translateY(-100%);
+}
+
+.sticky-header.scroll-up {
+    transform: translateY(0);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Company Assets (Left Side) */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: #111827;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.brand-name {
+    font-family: 'EB Garamond', serif;
+    font-size: 22px;
+    font-weight: 700; 
+    white-space: nowrap;
+}
+
+/* Underline Animation Mechanics */
+.nav-link {
+    text-decoration: none;
+    font-family: 'Urbanist', sans-serif;
+    font-size: 18px; 
+    font-weight: 400;
+    color: #4b5563;
+    white-space: nowrap;
+    position: relative;
+    padding: 6px 0;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -2px; /* FIXED: Shifted slightly down to prevent sub-pixel layout clipping against text bounds */
+    left: 0;
+    background-color: #813F9B;
+    transform: scaleX(0) scaleY(1); /* FIXED: Locks vertical scale to prevent rendering thickness fluctuations */
+    transform-origin: bottom left;
+    transition: transform 0.3s ease-in-out;
+    backface-visibility: hidden; /* FIXED: Hardware accelerates animation for anti-aliasing stability */
+}
+
+.nav-link:hover,
+.nav-link:active,
+.nav-link.active {
+    color: #813F9B;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    transform: scaleX(1) scaleY(1); /* FIXED: Maintains locked aspect scale throughout movement */
+}
+
+/* ==========================================================================
+   4.1 DESKTOP NAVIGATION LAYOUT ONLY (min-width: 993px)
+   ========================================================================== */
+@media (min-width: 993px) {
+    .hamburger {
+        display: none !important; /* Forces hamburger hidden on desktop */
+    }
+    
+    .nav-menu {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+    }
+
+    .nav-menu li.dropdown {
+        position: relative;
+    }
+
+    /* Built-in Indicator Arrow */
+    .arrow {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin-left: 6px;
+        vertical-align: middle;
+        border-top: 4px solid #4b5563;
+        border-right: 4px solid transparent;
+        border-left: 4px solid transparent;
+        transition: transform 0.2s ease, border-top-color 0.2s ease;
+    }
+
+    .dropdown:hover .arrow {
+        border-top-color: #813F9B;
+        transform: rotate(-180deg);
+    }
+
+    /* Base style configuration for hidden sub-menus */
+    .submenu {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        background-color: #ffffff;
+        min-width: 180px;
+        list-style: none;
+        padding: 10px 0;
+        border-radius: 6px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); 
+        border: 1px solid #f3f4f6;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px); 
+        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+        z-index: 1100;
+    }
+
+    .nav-menu li.dropdown:hover .submenu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .submenu li a {
+        display: block;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-family: 'Urbanist', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        color: #4b5563;
+        transition: background-color 0.2s ease, color 0.2s ease;
+        white-space: nowrap;
+    }
+
+    .submenu li a:hover {
+        background-color: #f9fafb;
+        color: #813F9B; 
+    }
+}
+
+/* ==========================================================================
+   5. MOBILE RESPONSIVE DRAWERS (max-width: 992px Breakpoint)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .sticky-header {
+        padding: 12px 20px; 
+    }
+    /*
+    .sticky-header.shrink {
+        padding: 8px 20px;
+    }
+    */
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    
+    /* Forced display layout overrides desktop styles */
+    .hamburger {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001; 
+    }
+
+    /* Styling for the three individual bars */
+    .hamburger .bar {
+        display: block;
+        width: 100%;
+        height: 3px;
+        margin: 0; 
+        background-color: #111827; 
+        border-radius: 2px;
+        transition: all 0.3s ease; 
+    }
+
+    /* Mobile Drawer Definition */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; 
+        width: 300px;
+        height: 100vh;
+        background-color: #ffffff;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+        display: flex; 
+        flex-direction: column;
+        padding: 100px 0 30px 0; 
+        gap: 15px;
+        transition: right 0.3s ease;
+        align-items: flex-start; 
+        z-index: 1000;
+        list-style: none;
+    }
+    
+    .nav-menu.active {
+        right: 0; 
+    }
+
+    /* Padding keeps content aligned inside the drawer */
+    .nav-menu > li {
+        width: 100%;
+        padding: 0 30px; 
+    }
+
+    /* FIXED: Inline-block shrinks the link container to fit only the word, fixing the underline width */
+    .nav-menu .nav-link {
+        display: inline-block !important; 
+        font-size: 20px; 
+        padding: 5px 0;
+        width: auto !important; /* Prevents stretching */
+    }
+
+    /* Resets desktop layout shifting, centering, and absolute attributes */
+    .submenu {
+        position: static !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        box-shadow: none !important;
+        border: none !important;
+        padding: 5px 0 !important; 
+        background-color: transparent !important;
+        display: none; 
+        width: calc(100% + 60px) !important; /* Expanded to stretch past parent item padding bounds */
+        margin-left: -30px !important; /* Pulls highlight flush to the extreme left/right edges of the drawer */
+        list-style: none !important; 
+    }
+
+    /* Force displays sub-menus open in the mobile drawer layout */
+    .nav-menu.active .submenu {
+        display: block;
+    }
+
+    .submenu li {
+        width: 100%;
+        list-style: none !important; 
+    }
+
+    /* Formats mobile links—full block width, text padding, and clean transitions */
+    .submenu li a {
+        display: block !important; 
+        font-size: 16px !important;
+        padding: 10px 45px !important; /* Keeps the inner text indented neatly */
+        color: #4b5563 !important; 
+        text-decoration: none !important;
+        background-color: transparent !important;
+        font-family: 'Urbanist', sans-serif;
+        transition: background-color 0.2s ease, color 0.2s ease !important;
+    }
+    
+    /* Permanently removes line underlines from leaking onto sub-menu elements */
+    .submenu li a::after {
+        display: none !important;
+    }
+
+    /* Matches desktop behavior—grey background highlight with brand-purple text color */
+    .submenu li a:hover {
+        background-color: #f9fafb !important; 
+        color: #813F9B !important; 
+    }
+
+    .arrow {
+        display: none; 
+    }
+
+    /* Animates lines into an 'X' shape when drawer is active */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg); 
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
+
+/* ==========================================================================
+   6. FOOTER STYLING
+   ========================================================================== */
+footer.site-footer {
+    box-sizing: border-box; 
+    height: 20px;
+    width: 100%;
+    background-color: #f9fafb !important; 
+    padding: 0 20px; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    flex-shrink: 0 !important; 
+}
+
+footer.site-footer {
+    flex-shrink: 0 !important; 
+}
+
+.footer-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.site-footer p, 
+.site-footer .body-small {
+    margin: 0 !important; 
+    color: #111827; 
+    font-family: 'Urbanist', sans-serif;
+    font-size: 12px; 
+    font-weight: 400;
+    text-align: center;
+    line-height: 1; 
+}

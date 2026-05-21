@@ -1,0 +1,108 @@
+.workspace-viewport {
+  /* 1. Changes layout flow to float freely over background blocks */
+  position: absolute !important;
+  
+  /* 2. Pin the container directly underneath your sticky navigation bar */
+  top: 79px !important;    /* Matches the height profile of your header */
+  bottom: 20px !important; /* Matches the exact height footprint of your footer */
+  left: 0 !important;
+  
+  /* 3. Forces the block width flush against left/right glass borders */
+  width: 100% !important;
+  height: auto !important;  /* Strips out the old calculation math rule */
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+.canvas-viewer-zone {
+  width: 100%;
+  height: 100%;
+}
+
+.iframe-canvas-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.iframe-canvas-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+/* Off-Canvas Sliding Panels Setup */
+.app-drawer {
+  position: absolute;
+  z-index: 30;
+  background: #ffffff;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.drawer-panel-header h3 {
+  margin: 0;
+  font-family: 'EB Garamond', serif;
+  font-size: 1.2rem;
+}
+
+/* Modifier Classes Triggered by JavaScript Interactivity (FIXED POSITIONING) */
+.drawer-left-sidebar.pane-visible {
+  transform: translateX(0) !important;
+}
+
+.drawer-bottom-tray.pane-visible {
+  transform: translateY(0) !important;
+}
+
+.drawer-panel-close {
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: #999999;
+}
+
+.drawer-panel-close:hover { color: #000000; }
+.drawer-panel-body { padding: 20px; overflow-y: auto; flex: 1; }
+
+.drawer-left-sidebar {
+  top: 0;
+  left: 0;
+  width: 340px;
+  height: 100%;
+  border-right: 2px solid #000000;
+  transform: translateX(-100%);
+}
+
+.drawer-bottom-tray {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  background: #ffffff;
+  border-top: 2px solid #000000;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Open Panel Transition State Modifiers */
+.app-drawer.pane-visible, .drawer-bottom-tray.pane-visible {
+  transform: translate(0, 0) !important;
+}
+
+.parameter-control-row { margin-bottom: 14px; }
+.form-title-label { display: block; font-weight: bold; font-size: 0.85rem; margin-bottom: 4px; }

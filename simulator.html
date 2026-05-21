@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metal Building Tester</title>
+  <link rel="stylesheet" href="assets/general-style.css">
+  <link rel="stylesheet" href="assets/simulator-device-layout.css">
+  <link rel="stylesheet" href="assets/simulator-general-style.css">
+  <link rel="stylesheet" href="assets/simulator-input-style.css">
+  <link rel="stylesheet" href="assets/simulator-button-style.css">
+</head>
+<body>
+  <div class="content-wrapper">
+    <header class="sticky-header" id="header">
+        <div class="nav-container">
+            <a href="#" class="brand">
+                <img src="assets/img/logo1.jpg" alt="Logo" class="logo-img">
+                <span class="brand-name">Company Name</span>
+            </a>              
+            <nav>
+                <button class="hamburger" aria-label="Toggle navigation" id="hamburger-btn">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="dropdown">
+                        <a href="#" class="nav-link">About <span class="arrow"></span></a>
+                        <ul class="submenu">
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Services</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="nav-link">Projects <span class="arrow"></span></a>
+                        <ul class="submenu">
+                            <li><a href="simulator.html">Building Simulator</a></li>
+                            <li><a href="#">Gallery</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="nav-link">Blog</a></li>
+                    <li><a href="#" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <form action="https://formsubmit.co/4e5006d1beb362e19e65e5b8e0fb8dac" method="POST">
+      <div class="workspace-viewport">
+        <main class="canvas-viewer-zone">
+          <div class="iframe-canvas-container">
+            <!-- OVERLAY ACTION BUTTONS -->
+            <button type="button" class="overlay-btn trigger-left" id="wrenchToggleBtn" aria-label="Open Configuration Drawer">
+              <svg width="35" height="35" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <g transform="translate(1, 1)">
+                <!-- Handle Base Ring Cutout -->
+                <circle cx="5.5" cy="18.5" r="1.5" fill="none" />
+                
+                <!-- Unified Wrench Outline (Jaw Head + Handle Body) -->
+                <path fill="rgba(220, 220, 220, 0.6)" d="M4 15.5 L12.5 7 
+                        C12.1 5.3 12.6 3.5 14 2 
+                        C15.2 0.8 17 0.3 18.7 0.7 
+                        C19.3 0.8 19.4 1.5 18.9 1.9 
+                        L16.5 4.3 
+                        C16.1 4.7 16.1 5.3 16.5 5.7 
+                        L18.3 7.5 
+                        C18.7 7.9 19.3 7.9 19.7 7.5 
+                        L22.1 5.1 
+                        C22.5 4.6 23.2 4.7 23.3 5.3 
+                        C23.7 7 23.2 8.8 22 10 
+                        C20.5 11.4 18.7 11.9 17 11.5 
+                        L8.5 20
+                        A3.18 3.18 0 0 1 4 20
+                        A3.18 3.18 0 0 1 4 15.5 Z" />
+                </g>
+              </svg>
+            </button>
+            <button type="button" class="overlay-btn trigger-info" aria-label="Open Info Panel" onclick="toggleInfoModal(true)">
+              <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Outer sharp circle with your exact background color -->
+                <circle cx="12" cy="12" r="10" fill="#FF8C00" />
+                
+                <!-- Fluid, curvy, italicized serif glyph rendering matching your reference image -->
+                <text x="11.8" y="16.5" 
+                      font-family="'Georgia', 'Times New Roman', serif" 
+                      font-size="14px"
+                      font-style="italic" 
+                      fill="#000000" 
+                      stroke="none" 
+                      text-anchor="middle">i</text>
+              </svg>
+            </button>
+            <button type="button" class="overlay-btn trigger-bottom" id="arrowsToggleBtn" aria-label="Open Movement Drawer">
+              <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Vertical Arrow Axis Line and Pointers -->
+                <path d="M12 2v20" />
+                <path d="m15 5-3-3-3 3" />
+                <path d="m9 19 3 3 3-3" />
+                
+                <!-- Horizontal Arrow Axis Line and Pointers -->
+                <path d="M22 12H2" />
+                <path d="m19 9 3 3-3 3" />
+                <path d="m5 15-3-3 3-3" />
+              </svg>
+            </button>
+
+            <!-- HELP MODAL PANEL -->
+            <div id="infoModal" class="info-modal-overlay">
+              <div class="info-modal-box">
+                <button type="button" class="close-modal-btn" aria-label="Close Guide" onclick="toggleInfoModal(false)">&times;</button>
+                <div class="info-modal-content">
+                  <h3>Simulator Instructions</h3>
+                  <p>Welcome to the Metal Building Tester! Use the canvas overlays to toggle parameters:</p>
+                  <ul>
+                    <li><strong>Wrench Tool:</strong> Adjust building parameters and framing details in the left drawer.</li>
+                    <li><strong>Arrow Grid:</strong> Use the gamepad dashboard for camera navigation.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <iframe id="myIframe" name="myIframe" src="https://violetcloud-ai.github.io/wholesite/simulator/index.html?v=N5BXKuy8"></iframe>
+          </div>
+        </main>
+
+        <!-- DRAWERS (Outside main canvas workflow) -->
+        <div class="app-drawer drawer-left-sidebar" id="configDrawer">
+          <div class="drawer-panel-header">
+            <h3>Configuration Controls</h3>
+            <button type="button" class="drawer-panel-close" id="configCloseBtn">&times;</button>
+          </div>
+          <div class="drawer-panel-body">
+            <div class="slidecontainer">
+              <h3>Building Parameters</h3>
+              <div class="parameter-control-row">
+                <label class="form-title-label">Length (m):</label>
+                <div class="slider-row">
+                  <input id="slider_bldg_L" name="slider_bldg_L" type="range" step="0.1" class="slider" min="10" max="30" onchange="numbox_bldg_L.value=this.value" oninput="this.onchange()">
+                  <input id="numbox_bldg_L" name="numbox_bldg_L" type="number" class="numbox-input" step="0.1" pattern="^\d*\.\d$" inputmode="decimal" min="10" max="30" onkeydown="if(['e', 'E', '+', '-'].includes(event.key)) event.preventDefault();" onchange="slider_bldg_L.value=this.value" oninput="this.onchange()" value="20.0">
+                </div>
+              </div>
+              <div class="parameter-control-row">
+                <label class="form-title-label">Width (m):</label>
+                <div class="slider-row">
+                  <input id="slider_bldg_W" name="slider_bldg_W" type="range" step="0.1" class="slider" min="10" max="30" onchange="numbox_bldg_W.value=this.value" oninput="this.onchange()">
+                  <input id="numbox_bldg_W" name="numbox_bldg_W" type="number" class="numbox-input" step="0.1" pattern="^\d*\.\d$" inputmode="decimal" min="10" max="30" onkeydown="if(['e', 'E', '+', '-'].includes(event.key)) event.preventDefault();" onchange="slider_bldg_W.value=this.value" oninput="this.onchange()" value="20.0">
+                </div>
+              </div>
+              <div class="parameter-control-row">
+                <label class="form-title-label">Height (m):</label>
+                <div class="slider-row">
+                  <input id="slider_bldg_H" name="slider_bldg_H" type="range" step="0.1" class="slider" min="7" max="15" onchange="numbox_bldg_H.value=this.value" oninput="this.onchange()">
+                  <input id="numbox_bldg_H" name="numbox_bldg_H" type="number" class="numbox-input" step="0.1" pattern="^\d*\.\d$" inputmode="decimal" min="7" max="15" onkeydown="if(['e', 'E', '+', '-'].includes(event.key)) event.preventDefault();" onchange="slider_bldg_H.value=this.value" oninput="this.onchange()" value="11.0">
+                </div>
+              </div>
+              <div class="parameter-control-row">
+                <label class="form-title-label">Frame Spacing (m):</label>
+                <div class="slider-row">
+                  <input id="slider_frame_sp" name="slider_frame_sp" type="range" step="0.1" class="slider" min="6" max="10" onchange="numbox_frame_sp.value=this.value" oninput="this.onchange()">
+                  <input id="numbox_frame_sp" name="numbox_frame_sp" type="number" class="numbox-input" step="0.1" pattern="^\d*\.\d$" inputmode="decimal" min="6" max="10" onkeydown="if(['e', 'E', '+', '-'].includes(event.key)) event.preventDefault();" onchange="slider_frame_sp.value=this.value" oninput="this.onchange()" value="8.0">
+                </div>
+              </div>
+              <div class="parameter-control-row">
+                <label class="form-title-label">EndWall Spacing (m):</label>
+                <div class="slider-row">
+                  <input id="slider_endwall_sp" name="slider_endwall_sp" type="range" step="0.1" class="slider" min="6" max="10" onchange="numbox_endwall_sp.value=this.value" oninput="this.onchange()">
+                  <input id="numbox_endwall_sp" name="numbox_endwall_sp" type="number" class="numbox-input" step="0.1" pattern="^\d*\.\d$" inputmode="decimal" min="6" max="10" onkeydown="if(['e', 'E', '+', '-'].includes(event.key)) event.preventDefault();" onchange="slider_endwall_sp.value=this.value" oninput="this.onchange()" value="8.0">
+                </div>
+              </div>
+            </div>
+            <div class="non-slider-controls">
+              <p><label for="areaList">Area:</label>
+                <select id="areaList" name="areaList">
+                  <option value="city1">City 1</option>
+                  <option value="city2">City 2</option>
+                  <option value="city3">City 3</option>
+                </select>
+              </p>
+              <p>Building: <button id="button_Building" name="button_Building" type="button" onclick="genButtonClick(this.id)">Generate</button></p>
+              <p>Framing: <button id="button_Framing" name="button_Framing" type="button" onclick="genButtonClick(this.id)">Generate</button></p>
+              <p>Details: <button id="button_Detail" name="button_Detail" type="button" onclick="genButtonClick(this.id)">Generate</button></p>
+              <p class="body-small">Want to get the plans to build?</p>
+              <p><button id="inputSubmit" name="inputSubmit" type="submit" class="submit-btn">Submit Form</button></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="app-drawer drawer-bottom-tray" id="movementDrawer">
+          <button type="button" class="drawer-close-direct" id="movementCloseBtn">&times;</button>
+          <div class="drawer-panel-body control-console-layout" id="movementContainer">
+            <div class="control-cluster">
+              <div class="dpad-container-grid">
+                <button id="button_W" class="game-key key-w" data-original="W" type="button">W</button>
+                <button id="button_A" class="game-key key-a" data-original="A" type="button">A</button>
+                <button id="button_S" class="game-key key-s" data-original="S" type="button">S</button>
+                <button id="button_D" class="game-key key-d" data-original="D" type="button">D</button>
+              </div>
+              <span class="cluster-label">MOVE</span>
+            </div>
+            <div class="control-cluster">
+              <div class="inline-row-container">
+                <button id="button_X" class="game-key" data-original="X" type="button">X</button> 
+                <button id="button_F" class="game-key" data-original="F" type="button">F</button> 
+                <button id="button_G" class="game-key" data-original="G" type="button">G</button> 
+              </div>
+              <span class="cluster-label">FLOAT</span>
+            </div>
+            <div class="control-cluster">
+              <div class="dpad-container-grid">
+                <button id="button_I" class="game-key key-w" data-original="I" type="button">I</button>
+                <button id="button_J" class="game-key key-a" data-original="J" type="button">J</button>
+                <button id="button_K" class="game-key key-s" data-original="K" type="button">K</button>
+                <button id="button_L" class="game-key key-d" data-original="L" type="button">L</button>
+              </div>
+              <span class="cluster-label">TURN/TILT</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <footer class="site-footer">
+        <p>&copy; 2026 Company Name. All rights reserved.</p>
+    </footer>
+  </div>
+  <script src="assets/menu-style.js"></script>
+  <script src="assets/simulator-button-events.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Message Submitted</title>
+    <link rel="stylesheet" href="assets/general-style.css">
+    <style>
+        /* Small, page-specific layout adjustments for the thank you container card */
+        .thank-you-card {
+            background-color: #f9fafb;
+            border: 1px solid #f3f4f6;
+            border-radius: 8px;
+            padding: 50px 30px;
+            text-align: center;
+            max-width: 600px;
+            margin: 40px auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+        }
+        .success-icon-circle {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(129, 63, 155, 0.1);
+            color: #813F9B;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px auto;
+        }
+        .success-icon-circle svg {
+            width: 32px;
+            height: 32px;
+        }
+        .thank-you-card h1 {
+            font-family: 'EB Garamond', serif;
+            font-size: 32px;
+            color: #111827;
+            margin-bottom: 15px;
+        }
+        .thank-you-card p {
+            font-family: 'Urbanist', sans-serif;
+            font-size: 16px;
+            color: #4b5563;
+            max-width: 450px;
+            margin: 0 auto 30px auto;
+            line-height: 1.5;
+        }
+        .return-home-btn {
+            font-family: 'Urbanist', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            background-color: #813F9B;
+            color: #ffffff !important;
+            text-decoration: none !important;
+            padding: 12px 24px;
+            border-radius: 6px;
+            display: inline-block;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+        .return-home-btn:hover { background-color: #6a3280; }
+        .return-home-btn:active { transform: scale(0.98); }
+    </style>
+</head>
+<body>
+
+    <div class="content-wrapper">
+        <header class="sticky-header" id="header">
+            <div class="nav-container">
+                <!-- Left: Brand Assets -->
+                <a href="index.html" class="brand">
+                    <img src="assets/img/logo1.jpg" alt="Logo" class="logo-img">
+                    <span class="brand-name">Company Name</span>
+                </a>              
+
+                <!-- Right: Navigation Menu -->
+                <nav>
+                    <button class="hamburger" aria-label="Toggle navigation" id="hamburger-btn">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+
+                    <ul class="nav-menu" id="nav-menu">
+                        <!-- About Dropdown Parent -->
+                        <li class="dropdown">
+                            <a href="#" class="nav-link">About <span class="arrow"></span></a>
+                            <ul class="submenu">
+                                <li><a href="#">Company</a></li>
+                                <li><a href="#">Services</a></li>
+                            </ul>
+                        </li>
+                        
+                        <!-- Projects Dropdown Parent -->
+                        <li class="dropdown">
+                            <a href="#" class="nav-link">Projects <span class="arrow"></span></a>
+                            <ul class="submenu">
+                                <li><a href="simulator.html">Building Simulator</a></li>
+                                <li><a href="#">Gallery</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li><a href="blog.html" class="nav-link">Blog</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Centered Message Block -->
+            <div class="thank-you-card">
+                <div class="success-icon-circle">
+                    <!-- Crisp inline checkmark SVG icon -->
+                    <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"/></svg>
+                </div>
+                <h1>Thank you, your message has been submitted!</h1>
+                <p>We appreciate you taking the time to contact us. Our team will review your message data files and reach back out to your email address as soon as possible.</p>
+                <a href="index.html" class="return-home-btn">Return to Home Page</a>
+            </div>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Company Name. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/menu-style.js"></script>
+</body>
+</html>

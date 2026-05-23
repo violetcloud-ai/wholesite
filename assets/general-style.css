@@ -1,12 +1,13 @@
 /* ==========================================================================
-   1. GOOGLE FONTS IMPORT (FIXED)
-   ========================================================================== */
+1. GOOGLE FONTS IMPORT (FIXED)
+========================================================================== */
 @import url('https://fonts.googleapis.com/css?family=EB+Garamond');   
 @import url('https://fonts.googleapis.com/css?family=Urbanist');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono');
 
 /* ==========================================================================
-   2. GLOBAL RESET & WHITE CANVAS ENFORCEMENT (FIXED)
-   ========================================================================== */
+2. GLOBAL RESET & WHITE CANVAS ENFORCEMENT (FIXED)
+========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -15,14 +16,18 @@
 
 html, body {
     background-color: #ffffff !important;
-    min-height: 100vh; /* CHANGED from height: 100% to allow vertical scrolling */
+    min-height: 100vh;
     margin: 0;
+    width: 100%;
+    overflow-x: hidden; 
 }
 
 /* Flexbox layout wrapper to keep footer at the bottom */
 body {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /* Fixes the top cutoff by turning off absolute/fixed overlapping */
@@ -51,13 +56,14 @@ footer.site-footer {
 }
 
 /* ==========================================================================
-   3. WEBSITE CONTENT STYLING
-   ========================================================================== */
+3. WEBSITE CONTENT STYLING
+========================================================================== */
 .main-content {
-    max-width: 800px;
-    margin: 15px auto 60px auto;
+    max-width: 1200px !important; 
+    margin: 30px auto 60px auto;
     padding: 0 20px;
-    background-color: #ffffff; 
+    width: 100%; /* CRUCIAL: Ensures the wrapper container can organically shrink below 1200px on small viewports */
+    box-sizing: border-box;
 }
 
 h1 {
@@ -103,8 +109,8 @@ p, span.body-text {
 }
 
 /* ==========================================================================
-   4. MENU STYLING (NAVBAR)
-   ========================================================================== */
+4. MENU STYLING (NAVBAR)
+========================================================================== */
 .sticky-header {
     position: sticky;
     top: 0;
@@ -129,13 +135,6 @@ p, span.body-text {
     background: linear-gradient(to bottom, #e0e0e0, rgba(224, 224, 224, 0));
     pointer-events: none; 
 }
-
-/*
-.sticky-header.shrink {
-    padding: 6px 40px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-}
-*/
 
 .sticky-header.scroll-down {
     transform: translateY(-100%);
@@ -174,6 +173,16 @@ p, span.body-text {
     font-size: 22px;
     font-weight: 700; 
     white-space: nowrap;
+}
+
+a.brand, 
+a.brand:link, 
+a.brand:visited, 
+a.brand:hover, 
+a.brand:active {
+    text-decoration: none !important; /* Blocks any underlines from showing on your company header name */
+    color: #111827 !important;      /* Locks the text color to your original dark charcoal grey shade */
+    outline: none;
 }
 
 /* Underline Animation Mechanics */
@@ -215,8 +224,8 @@ p, span.body-text {
 }
 
 /* ==========================================================================
-   4.1 DESKTOP NAVIGATION LAYOUT ONLY (min-width: 993px)
-   ========================================================================== */
+4.1 DESKTOP NAVIGATION LAYOUT ONLY (min-width: 993px)
+========================================================================== */
 @media (min-width: 993px) {
     .hamburger {
         display: none !important; /* Forces hamburger hidden on desktop */
@@ -294,17 +303,17 @@ p, span.body-text {
 }
 
 /* ==========================================================================
-   5. MOBILE RESPONSIVE DRAWERS (max-width: 992px Breakpoint)
-   ========================================================================== */
+5. MOBILE RESPONSIVE DRAWERS (max-width: 992px Breakpoint)
+========================================================================== */
 @media (max-width: 992px) {
+    .content-wrapper {
+        overflow-x: hidden; 
+        width: 100%;
+    }
+    
     .sticky-header {
         padding: 12px 20px; 
     }
-    /*
-    .sticky-header.shrink {
-        padding: 8px 20px;
-    }
-    */
 
     nav {
         display: flex;
@@ -343,7 +352,8 @@ p, span.body-text {
         top: 0;
         right: -100%; 
         width: 300px;
-        height: 100vh;
+        height: 100vh !important;
+        height: 100dvh !important; 
         background-color: #ffffff;
         box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
         display: flex; 
@@ -440,22 +450,18 @@ p, span.body-text {
 }
 
 /* ==========================================================================
-   6. FOOTER STYLING
-   ========================================================================== */
+6. FOOTER STYLING & BRAND PROTECTION
+========================================================================== */
 footer.site-footer {
     box-sizing: border-box; 
-    height: 20px;
+    min-height: 40px; /* FIXED: Changed from height:20px to min-height to allow text to wrap on mobile without cutting off */
     width: 100%;
     background-color: #f9fafb !important; 
-    padding: 0 20px; 
+    padding: 10px 20px; /* FIXED: Added uniform top/bottom padding for clean vertical centering */
     display: flex;
     align-items: center; 
     justify-content: center;
-    flex-shrink: 0 !important; 
-}
-
-footer.site-footer {
-    flex-shrink: 0 !important; 
+    flex-shrink: 0 !important; /* CONSOLIDATED: Duplicate property block removed */
 }
 
 .footer-container {
@@ -467,13 +473,25 @@ footer.site-footer {
     align-items: center; 
 }
 
+/* CONSOLIDATED: Unified text controls to remove layout property duplicates */
 .site-footer p, 
-.site-footer .body-small {
+.site-footer .body-small,
+.site-footer p a, 
+.site-footer p a:link, 
+.site-footer p a:visited {
     margin: 0 !important; 
-    color: #111827; 
+    color: #111827 !important; /* Locks color to your charcoal grey, blocking purple link bleed */
+    text-decoration: none !important; /* Blocks standard links underlines */
     font-family: 'Urbanist', sans-serif;
     font-size: 12px; 
     font-weight: 400;
     text-align: center;
-    line-height: 1; 
+    line-height: 1.4; /* FIXED: Increased from 1 to 1.4 so multi-line text reads nicely on mobile screens */
+    transition: color 0.2s ease;
+}
+
+/* Subtle brand purple highlight option ONLY when hovering directly over footer links */
+.site-footer p a:hover {
+    color: #813F9B !important;
+    text-decoration: underline !important; 
 }

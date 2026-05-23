@@ -1,0 +1,602 @@
+/* ==========================================================================
+1. RESPONSIVE TWO-COLUMN BLOG CONTENT SYSTEM
+========================================================================== */
+
+/* Overriding original main-content width to accommodate the sidebar safely */
+.main-content {
+    max-width: 1200px !important; 
+    margin: 30px auto 60px auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* Base Desktop Grid layout */
+.blog-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px; /* Posts take remaining space, sidebar is fixed at 300px */
+    gap: 50px;
+    align-items: start;
+}
+
+/* Individual Post Card Structures */
+.blog-post {
+    margin-bottom: 45px;
+    border-bottom: 1px solid #f3f4f6;
+    padding-bottom: 35px;
+}
+
+.blog-post:last-of-type {
+    border-bottom: none;
+}
+
+.post-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: #813F9B;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.post-title {
+    margin-bottom: 12px !important;
+}
+
+.post-title a {
+    text-decoration: none;
+    color: #111827;
+    transition: color 0.2s ease;
+}
+
+.post-title a:hover {
+    color: #813F9B;
+}
+
+.post-content p {
+    margin-bottom: 15px;
+}
+
+/* Tags Layout */
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.tag {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 12px;
+    background-color: #f3f4f6;
+    color: #4b5563;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+/* "Read More" Bottom Prompt Label styling */
+.read-more-trigger {
+    text-align: center;
+    margin: 40px 0;
+    padding: 20px 0;
+    border-top: 2px dashed #e5e7eb;
+}
+
+#load-more-btn {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    background: transparent;
+    border: 2px solid #813F9B;
+    color: #813F9B;
+    padding: 10px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#load-more-btn:hover {
+    background-color: #813F9B;
+    color: #ffffff;
+}
+
+/* Sidebar Archive Layout */
+.sidebar-widget {
+    background-color: #f9fafb;
+    border-radius: 8px;
+    padding: 25px;
+    border: 1px solid #f3f4f6;
+}
+
+.sidebar-widget h3 {
+    border-bottom: 2px solid #813F9B;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.archive-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.archive-list li {
+    margin-bottom: 12px;
+}
+
+.archive-list li:last-child {
+    margin-bottom: 0;
+}
+
+.archive-list a {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 16px;
+    color: #4b5563;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    transition: color 0.2s ease;
+}
+
+.archive-list a:hover {
+    color: #813F9B;
+}
+
+.archive-count {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: #9ca3af;
+}
+
+/* ==========================================================================
+2. SIDEBAR SEARCH BAR WIDGET STYLING
+========================================================================== */
+.search-widget {
+    margin-bottom: 25px; 
+}
+
+.search-box-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+#blog-search-input {
+    width: 100%;
+    padding: 12px 40px 12px 14px; 
+    font-family: 'IBM Plex Mono', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #111827;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#blog-search-input:focus {
+    border-color: #813F9B;
+    box-shadow: 0 0 0 3px rgba(129, 63, 155, 0.15);
+}
+
+#clear-search-btn {
+    position: absolute;
+    right: 12px;
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    line-height: 1;
+    color: #9ca3af;
+    cursor: pointer;
+    display: none; 
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+#clear-search-btn:hover {
+    color: #813F9B;
+}
+
+/* ==========================================================================
+3. NO RESULTS EMPTY STATE STYLING
+========================================================================== */
+.no-results-notice {
+    background-color: #f9fafb;
+    border: 2px dashed #d1d5db;
+    border-radius: 8px;
+    padding: 40px 30px;
+    text-align: center;
+    margin: 20px 0 60px 0;
+    animation: fadeInNotice 0.3s ease-in-out;
+}
+
+.no-results-notice h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+    color: #111827;
+}
+
+.no-results-notice p {
+    font-size: 16px;
+    color: #6b7280;
+    max-width: 500px;
+    margin: 0 auto 25px auto;
+}
+
+#reset-all-filters-btn {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #813F9B;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#reset-all-filters-btn:hover {
+    background-color: #6a3280;
+}
+
+#reset-all-filters-btn:active {
+    transform: scale(0.98);
+}
+
+@keyframes fadeInNotice {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+4. INTERACTIVE CLICKABLE TAGS STYLING
+========================================================================== */
+.clickable-tag {
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.clickable-tag:hover {
+    background-color: #813F9B;
+    color: #ffffff;
+}
+
+/* ==========================================================================
+5. ACTIVE TOPIC FILTER INDICATOR BADGE
+========================================================================== */
+#active-filters-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px; 
+}
+
+.topic-filter-badge {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    background-color: rgba(129, 63, 155, 0.1);
+    color: #813F9B;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(129, 63, 155, 0.2);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    animation: fadeInBadge 0.2s ease-out;
+}
+
+.clear-topic-x {
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    line-height: 1;
+    color: #813F9B;
+    cursor: pointer;
+    padding: 0 0 1px 0;
+    font-weight: bold;
+    transition: color 0.2s ease, transform 0.1s ease;
+}
+
+.clear-topic-x:hover {
+    color: #b91c1c; 
+    transform: scale(1.15);
+}
+
+@keyframes fadeInBadge {
+    from { opacity: 0; transform: translateY(-3px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+6. RESPONSIVE VIDEO EMBED WRAPPERS
+========================================================================== */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; 
+    height: 0;
+    margin: 25px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: 0;
+}
+
+/* ==========================================================================
+7. GLOBAL POST LINK AUTO-STYLING
+========================================================================== */
+.post-content a {
+    color: #813F9B !important;
+    font-weight: 600 !important;
+    text-decoration: underline !important;
+    transition: color 0.2s ease;
+}
+
+.post-content a:hover {
+    color: #6a3280 !important;
+}
+
+/* ==========================================================================
+8. COMPACT 60% DATA TABLES STYLING
+========================================================================== */
+table.blog-data-table {
+    width: 60%; 
+    margin: 30px auto; 
+    border-collapse: collapse;
+    font-family: 'Urbanist', sans-serif;
+    font-size: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    border: 1px solid #e5e7eb;
+}
+
+table.blog-data-table th {
+    background-color: #f3f4f6; 
+    color: #111827;
+    font-weight: 700; 
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+table.blog-data-table td {
+    padding: 12px 16px;
+    color: #4b5563;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+table.blog-data-table tbody tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+@media (max-width: 640px) {
+    table.blog-data-table {
+        width: 100% !important; 
+    }
+}
+
+/* ==========================================================================
+9. DARK TERMINAL CODE SNIPPET BOX THEME
+========================================================================== */
+.code-snippet-box {
+    background-color: #1e1e2e; 
+    border-radius: 8px;
+    margin: 25px 0;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.code-box-header {
+    background-color: #181825;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #252538;
+}
+
+.code-box-dot {
+    width: 11px; height: 11px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.code-box-dot.red { background-color: #ff5f56; }
+.code-box-dot.yellow { background-color: #ffbd2e; }
+.code-box-dot.green { background-color: #27c93f; }
+
+.code-box-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: #cdd6f4;
+    margin-left: 10px;
+    opacity: 0.8;
+}
+
+.code-snippet-box pre {
+    margin: 0; padding: 18px 20px;
+    overflow-x: auto; 
+}
+
+.code-snippet-box code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: #a6e3a1; 
+    line-height: 1.5;
+    white-space: pre;
+}
+
+/* ==========================================================================
+10. CHRONOLOGICAL STREAM TEXT FADE PREVIEWS
+========================================================================== */
+.post-preview-limiter {
+    max-height: 200px; /* Restricts the post block height on the main timeline */
+    overflow: hidden;
+    position: relative;
+    
+    /* Sleek background mask that blends text strings into transparency near the 200px edge */
+    -webkit-mask-image: linear-gradient(to bottom, #111827 60%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #111827 60%, transparent 100%);
+}
+
+.see-more-link-wrapper {
+    margin: 15px 0 25px 0;
+}
+
+/* Formats the see more text action action elements to match your purple branding */
+.see-more-action-link {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #813F9B !important;
+    text-decoration: none !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+    display: inline-block;
+}
+
+/* Subtle interactive slide movement when hovered */
+.see-more-action-link:hover {
+    color: #6a3280 !important;
+    padding-left: 5px; /* Shifts arrow slightly right on mouse hover */
+}
+
+/* ==========================================================================
+11. DYNAMIC LEADING MEDIA ALIGNMENT RULES
+========================================================================== */
+.post-preview-media-frame {
+    margin-bottom: 20px; /* Leaves perfect breathing room above the faded text */
+    width: 100%;
+}
+
+.post-preview-media-frame img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+/* ==========================================================================
+12. DESKTOP ACCORDION BASE SETUP & DIVIDER LOCKS
+========================================================================== */
+.sidebar-toggle-btn {
+    display: contents; /* Strips wrapper on desktop to keep headings completely visible */
+    background: transparent;
+    border: none;
+    width: 100%;
+    padding: 0;
+    cursor: default;
+    text-align: left;
+}
+
+/* FIX: Strictly force the '+' icon to hide on all desktop view screens */
+.sidebar-toggle-btn .toggle-icon {
+    display: none !important;
+}
+
+/* ==========================================================================
+13. GLOBAL MOBILE BREAKPOINT RESPONSIVENESS (max-width: 992px)
+========================================================================== */
+@media (max-width: 992px) {
+    .blog-layout-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+    
+    .blog-sidebar {
+        order: 1 !important; /* Forces accordion widgets cleanly to the top of mobile views */
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    
+    .blog-posts-feed {
+        order: 2 !important; /* Pushes article feed below top menus */
+        width: 100% !important;
+        margin-top: 15px;
+        box-sizing: border-box !important;
+    }
+
+    /* Activates active layout blocks for click buttons on mobile layout panels */
+    .sidebar-toggle-btn {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        outline: none;
+        cursor: pointer;
+    }
+
+    /* FIX: Force open visibility back onto the '+' icon strictly on smartphones */
+    .sidebar-toggle-btn .toggle-icon {
+        display: inline-block !important;
+    }
+
+    .sidebar-widget h3 {
+        border-bottom: none !important; /* Removes thick dividers while collapsed */
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    /* Collapses dropdown lists content by default on small layout grids */
+    .widget-content-wrapper {
+        display: none; 
+        padding-top: 15px;
+        margin-top: 10px;
+        border-top: 1px solid #e5e7eb;
+        animation: slideDownFade 0.25s ease-out forwards;
+    }
+
+    /* Target modifier hooks injected via JavaScript handlers click states */
+    .sidebar-widget.expanded .widget-content-wrapper {
+        display: block !important;
+    }
+
+    .sidebar-widget.expanded .toggle-icon {
+        transform: rotate(45deg); /* Turns '+' cross into close marker 'x' icon */
+    }
+
+    /* Content wrapping adjustments on mobile view screens */
+    .blog-post, 
+    .post-content, 
+    .post-content p {
+        width: 100% !important;
+        max-width: 100% !important;
+        word-wrap: break-word !important;
+        word-break: break-word !important; 
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+    }
+
+    .post-title, 
+    .post-title a {
+        font-size: 24px !important; 
+        line-height: 1.3 !important;
+        white-space: normal !important;
+    }
+
+    table.blog-data-table {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: block !important; 
+        overflow-x: auto !important; 
+        white-space: nowrap !important; 
+    }
+}
+
+@keyframes slideDownFade {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}

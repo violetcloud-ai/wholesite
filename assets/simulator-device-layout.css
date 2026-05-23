@@ -4,7 +4,7 @@
   
   /* 2. Pin the container directly underneath your sticky navigation bar */
   top: 79px !important;    /* Matches the height profile of your header */
-  bottom: 20px !important; /* Matches the exact height footprint of your footer */
+  bottom: 40px !important; /* Matches the exact height footprint of your footer */
   left: 0 !important;
   
   /* 3. Forces the block width flush against left/right glass borders */
@@ -106,3 +106,46 @@
 
 .parameter-control-row { margin-bottom: 14px; }
 .form-title-label { display: block; font-weight: bold; font-size: 0.85rem; margin-bottom: 4px; }
+
+/* ==========================================================================
+   MOBILE SCREEN INTEGRITY FIX (Locks Viewport Height & Erases Scroll Gaps)
+   ========================================================================== */
+@media screen and (max-width: 992px) {
+  /* 1. Freeze the core screen canvas and turn off mobile body scrolling tracking */
+  html, body {
+    height: 100vh !important;
+    height: 100dvh !important; /* Blocks mobile browser address bar layout jumps */
+    overflow: hidden !important; 
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* 2. Constrain the outer semantic page wrapper to the exact viewport window height */
+  .content-wrapper {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  /* 3. Keep the viewport stretched tightly between the header and footer bounds */
+  .workspace-viewport {
+    right: 0 !important;
+    height: auto !important;
+    overflow: hidden !important;
+  }
+
+  /* 4. Guarantee your copyright line remains securely fixed to the bottom edge */
+  footer.site-footer {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 40px !important;
+    background-color: #f9fafb !important;
+    z-index: 1000 !important;
+    margin: 0 !important;
+  }
+}

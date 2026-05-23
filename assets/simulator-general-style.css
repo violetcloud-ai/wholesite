@@ -5,81 +5,59 @@ html, body {
   font-family: sans-serif;
   font-weight: normal;
   background-color: #fff;
-  
-  /* NEW: Locks the baseline webpage size cleanly to 14px */
   font-size: 14px; 
   line-height: 1;
 }
 
-/* Forces form controls to scale uniformly alongside your master layout font size */
 input, select, button {
   font-family: inherit;
   font-size: inherit;
 }
 
-.iframe-container {
-    height: 100%;           /* Forces container to fill the full 60% yellow block height */
-    max-height: 100%;       
-    aspect-ratio: 16 / 9;   /* Forces the 16:9 ratio box boundary based on that height */
-    box-sizing: border-box;
-  }
+/* ==========================================================================
+UNIFIED TYPOGRAPHY LABELS SYSTEM (Grouped to Match .body-small Standard)
+========================================================================== */
+/* UNIFIED: Maps left parameter control labels, paragraphs, and lists to use the exact same look and feel */
+.form-title-label,
+.non-slider-controls p,
+.non-slider-controls label,
+.body-small {
+  font-family: 'Urbanist', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important; /* Stripped out old heavy bolding rules for a unified appearance */
+  line-height: 1.5 !important;
+  color: #111827 !important;
+  margin-bottom: 0px; 
+  display: block;
+}
 
-  .iframe-container iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: block;
-  }
+/* Maintains uniform row spacing for form blocks */
+.parameter-control-row { 
+  margin-bottom: 14px; 
+}
+
+.form-title-label {
+  margin-bottom: 4px;
+}
 
 /* ==========================================================================
-  FLOATING INFO WINDOW & OVERLAY MODAL SYSTEM
-  ========================================================================== */
-
-/* Establish the frame context for absolute pinning */
+FLOATING INFO WINDOW & OVERLAY MODAL SYSTEM
+========================================================================== */
 .iframe-container {
-  position: relative !important; /* Locks absolute coordinates to this container bounds */
+  position: relative !important;
+  height: 100%;           
+  max-height: 100%;       
+  aspect-ratio: 16 / 9;   
+  box-sizing: border-box;
 }
 
-/* The small floating 'i' inside a circle button */
-.floating-info-btn {
-  position: absolute !important;
-  top: 15px !important;
-  right: 15px !important;
-  z-index: 100 !important; /* Layers it securely above the running 3D iframe */
-  
-  width: 24px !important;
-  height: 24px !important;
-  min-width: 24px !important;
-  border-radius: 50% !important; /* Forms a perfect circle boundary */
-  background-color: rgba(255, 106, 25, 0.8) !important; /* Deep theme purple with opacity */
-  border: 1px solid #ffffff !important;
-  
-  color: #ffffff !important;
-  font-family: serif !important; /* Classic italicized info look */
-  font-style: italic !important;
-  font-weight: bold !important;
-  font-size: 14px !important;
-  
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  cursor: pointer !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
-  transition: background-color 0.2s, transform 0.1s !important;
+.iframe-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
 }
 
-.floating-info-btn:hover {
-  background-color: #813F9B !important;
-  transform: scale(1.08) !important;
-}
-
-.floating-info-btn:active {
-  transform: scale(0.95) !important;
-}
-
-/* Dark transparent background overlay covering only the iframe container window */
 .info-modal-overlay {
   position: absolute !important;
   top: 0 !important;
@@ -88,24 +66,19 @@ input, select, button {
   height: 100% !important;
   background-color: rgba(0, 0, 0, 0.5) !important;
   z-index: 150 !important;
-  
-  /* Smooth fading configurations */
   opacity: 0 !important;
   visibility: hidden !important;
   transition: opacity 0.25s ease, visibility 0.25s ease !important;
-  
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
 }
 
-/* Active trigger state to show the window popup */
 .info-modal-overlay.active {
   opacity: 1 !important;
   visibility: visible !important;
 }
 
-/* The core container box for your text/images */
 .info-modal-box {
   background-color: #ffffff !important;
   color: #333333 !important;
@@ -118,27 +91,6 @@ input, select, button {
   box-sizing: border-box !important;
 }
 
-/* Close "X" button styled inside the box container upper-right node */
-.close-modal-btn {
-  position: absolute !important;
-  top: 8px !important;
-  right: 12px !important;
-  background: transparent !important;
-  border: none !important;
-  color: #888888 !important;
-  font-size: 22px !important;
-  font-weight: bold !important;
-  cursor: pointer !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  min-width: auto !important;
-}
-
-.close-modal-btn:hover {
-  color: #FF6A19 !important; /* Turns orange-red when hovered */
-}
-
-/* Typography styles inside the text body */
 .info-modal-content h3 {
   margin-top: 0 !important;
   margin-bottom: 10px !important;
@@ -151,16 +103,19 @@ input, select, button {
   line-height: 1.4 !important;
   margin-bottom: 8px !important;
 }
+
 .info-modal-content ul {
   padding-left: 18px !important;
   margin: 0 !important;
 }
 
-/* Container Frame Settings */
+/* ==========================================================================
+WORKSPACE VIEWPORT & APP DRAWERS
+========================================================================== */
 .workspace-viewport {
   position: relative;
   width: 100%;
-  height: calc(100vh - 140px); /* Keeps canvas bounded between top header and footer height */
+  height: calc(100vh - 140px); 
   overflow: hidden;
   background-color: #f0f0f0;
 }
@@ -183,7 +138,6 @@ input, select, button {
   display: block;
 }
 
-/* Floating Overlay Panel Trigger Styles */
 .floating-control-btn {
   position: absolute;
   z-index: 15;
@@ -207,23 +161,10 @@ input, select, button {
   transform: scale(1.08);
 }
 
-/* Coordinates Matching Visual Wireframe Mockup */
-.btn-top-left {
-  top: 25px;
-  left: 25px;
-}
+.btn-top-left { top: 25px; left: 25px; }
+.btn-top-right { top: 25px; right: 25px; }
+.btn-bottom-right { bottom: 25px; right: 25px; }
 
-.btn-top-right {
-  top: 25px;
-  right: 25px;
-}
-
-.btn-bottom-right {
-  bottom: 25px;
-  right: 25px;
-}
-
-/* Off-Canvas Sliding Drawer Engine */
 .app-drawer {
   position: absolute;
   z-index: 30;
@@ -249,106 +190,87 @@ input, select, button {
   font-size: 1.1rem;
 }
 
-.drawer-panel-close {
-  background: transparent;
-  border: none;
-  font-size: 1.6rem;
-  cursor: pointer;
-  color: #999999;
-}
-
-.drawer-panel-close:hover {
-  color: #000000;
-}
-
 .drawer-panel-body {
   padding: 20px;
   overflow-y: auto;
   flex: 1;
 }
 
-/* Left Sidebar Placement */
 .drawer-left-sidebar {
   top: 0;
   left: 0;
   width: 360px;
   height: 100%;
-  transform: translateX(-100%); /* Keeps hidden on load outside viewport */
+  transform: translateX(-100%); 
 }
 
-/* Bottom Tray Placement */
 .drawer-bottom-tray {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 240px;
-  transform: translateY(100%); /* Keeps hidden on load down screen */
+  height: 160px;
+  background-color: rgba(255, 255, 255, 0.5) !important; 
+  border-top: none !important; 
+  z-index: 30;
+  transform: translateY(100%); 
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 30px) !important;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1)30px) !important;
 }
 
-/* Modifier Classes Triggered by JavaScript Interactivity */
+.drawer-bottom-tray.pane-visible {
+  transform: translate(0, 0) !important;
+}
+
+/* ==========================================================================
+SHORT SCREEN CONDITION (Fires if 160px takes up > 1/3 of iframe height)
+========================================================================== */
+@media screen and (max-height: 480px) {
+  .drawer-bottom-tray {
+    top: 0 !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    left: auto !important;
+    width: 200px !important; 
+    height: 100% !important;  
+    transform: translateX(100%) !important; 
+    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 25px) !important;
+    mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 25px) !important;
+  }
+  
+  .control-console-layout {
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    gap: 15px !important;
+    padding: 45px 10px 20px 30px !important;
+    overflow-y: auto !important;
+  }
+
+  .cluster-label {
+    margin-top: 6px !important;
+    font-size: 0.75rem !important;
+  }
+}
+
 .app-drawer.pane-visible {
   transform: translate(0, 0) !important;
 }
 
-/* Formatting Support Updates */
-.parameter-control-row {
-  margin-bottom: 14px;
-}
-.form-title-label {
-  display: block;
-  font-weight: bold;
-  font-size: 0.85rem;
-  margin-bottom: 4px;
-}
-.layout-flex-horizontal {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-.control-dpad-section {
-  min-width: 150px;
-}
+.layout-flex-horizontal { display: flex; justify-content: space-around; align-items: flex-start; flex-wrap: wrap; }
+.control-dpad-section { min-width: 150px; }
 
-/* Bottom Tray Geometry Overhaul */
-.drawer-bottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 180px; /* Slimmer, compact profile matching mockup proportional heights */
-  background: #ffffff;
-  border-top: 2px solid #000000; /* Dark boundary line matching your layout style */
-  z-index: 30;
-  transform: translateY(100%);
-  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-/* Close Mark Placement on Far Right Margin */
-.drawer-close-direct {
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  background: transparent;
-  border: none;
-  font-size: 2.2rem;
-  line-height: 1;
-  cursor: pointer;
-  color: #000000;
-  z-index: 35;
-}
-
-/* Horizontal Console Control Layout */
+/* ==========================================================================
+CONSOLE MOVEMENT ENGINE INTERACTION DECK
+========================================================================== */
 .control-console-layout {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12%; /* Keeps panels evenly distributed */
+  gap: 12%; 
   height: 100%;
   padding: 10px 60px;
 }
 
-/* Structural Vertical Stack for Key Containers + Label Texts */
 .control-cluster {
   display: flex;
   flex-direction: column;
@@ -365,37 +287,33 @@ input, select, button {
   text-transform: uppercase;
 }
 
-/* D-Pad Layout Matrix using CSS Grid */
 .dpad-container-grid {
   display: grid;
   grid-template-columns: repeat(3, 40px);
   grid-template-rows: repeat(2, 40px);
-  gap: 2px; /* Tight grid structure */
+  gap: 2px; 
 }
 
-/* Mapping traditional T-shape grid cells */
 .key-w { grid-column: 2; grid-row: 1; }
 .key-a { grid-column: 1; grid-row: 2; }
 .key-s { grid-column: 2; grid-row: 2; }
 .key-d { grid-column: 3; grid-row: 2; }
 
-/* Horizontal Inline Container for Float Section */
 .inline-row-container {
   display: flex;
   gap: 8px;
-  height: 82px; /* Matches total vertical footprint height of D-Pads */
-  align-items: flex-end; /* Aligns row inline with the bottom row of D-Pads */
+  height: 82px; 
+  align-items: flex-end; 
   padding-bottom: 2px;
 }
 
-/* Minimalist Square Key Caps Styling */
 .game-key {
   width: 40px;
   height: 40px;
   background: #ffffff;
   color: #000000;
-  border: 1px solid #000000; /* Crisp sharp borders matching diagram lines */
-  border-radius: 0px; /* Sharp corners */
+  border: 1px solid #000000; 
+  border-radius: 0px; 
   font-family: inherit;
   font-size: 1rem;
   font-weight: 500;
@@ -406,10 +324,5 @@ input, select, button {
   transition: background-color 0.1s ease;
 }
 
-.game-key:hover {
-  background: #f0f0f0;
-}
-
-.game-key:active {
-  background: #e0e0e0;
-}
+.game-key:hover { background: #f0f0f0; }
+.game-key:active { background: #e0e0e0; }

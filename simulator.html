@@ -5,16 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Metal Building Tester</title>
   <link rel="stylesheet" href="assets/general-style.css">
+  <link rel="stylesheet" href="assets/form-input-style.css">
   <link rel="stylesheet" href="assets/simulator-device-layout.css">
   <link rel="stylesheet" href="assets/simulator-general-style.css">
   <link rel="stylesheet" href="assets/simulator-input-style.css">
   <link rel="stylesheet" href="assets/simulator-button-style.css">
 </head>
+
 <body>
   <div class="content-wrapper">
     <header class="sticky-header" id="header">
         <div class="nav-container">
-            <a href="#" class="brand">
+            <a href="index.html" class="brand">
                 <img src="assets/img/logo1.jpg" alt="Logo" class="logo-img">
                 <span class="brand-name">Company Name</span>
             </a>              
@@ -39,49 +41,48 @@
                             <li><a href="#">Gallery</a></li>
                         </ul>
                     </li>
-                    <li><a href="#" class="nav-link">Blog</a></li>
-                    <li><a href="#" class="nav-link">Contact</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <form action="https://formsubmit.co/4e5006d1beb362e19e65e5b8e0fb8dac" method="POST">
+      <input type="hidden" name="_next" value="https://google.com">
       <div class="workspace-viewport">
         <main class="canvas-viewer-zone">
           <div class="iframe-canvas-container">
+
             <!-- OVERLAY ACTION BUTTONS -->
             <button type="button" class="overlay-btn trigger-left" id="wrenchToggleBtn" aria-label="Open Configuration Drawer">
-              <svg width="35" height="35" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="35" height="35" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
                 <g transform="translate(1, 1)">
-                <!-- Handle Base Ring Cutout -->
-                <circle cx="5.5" cy="18.5" r="1.5" fill="none" />
-                
-                <!-- Unified Wrench Outline (Jaw Head + Handle Body) -->
-                <path fill="rgba(220, 220, 220, 0.6)" d="M4 15.5 L12.5 7 
-                        C12.1 5.3 12.6 3.5 14 2 
-                        C15.2 0.8 17 0.3 18.7 0.7 
-                        C19.3 0.8 19.4 1.5 18.9 1.9 
-                        L16.5 4.3 
-                        C16.1 4.7 16.1 5.3 16.5 5.7 
-                        L18.3 7.5 
-                        C18.7 7.9 19.3 7.9 19.7 7.5 
-                        L22.1 5.1 
-                        C22.5 4.6 23.2 4.7 23.3 5.3 
-                        C23.7 7 23.2 8.8 22 10 
-                        C20.5 11.4 18.7 11.9 17 11.5 
-                        L8.5 20
-                        A3.18 3.18 0 0 1 4 20
-                        A3.18 3.18 0 0 1 4 15.5 Z" />
+                  <!-- Handle Base Ring Cutout (FIXED COORDINATES FOR PERFECT CENTERING) -->
+                  <circle cx="6.2" cy="17.8" r="1.5" fill="none" />
+                  <path fill="rgba(220, 220, 220, 0.6)" d="M4 15.5 L12.5 7 
+                          C12.1 5.3 12.6 3.5 14 2 
+                          C15.2 0.8 17 0.3 18.7 0.7 
+                          C19.3 0.8 19.4 1.5 18.9 1.9 
+                          L16.5 4.3 
+                          C16.1 4.7 16.1 5.3 16.5 5.7 
+                          L18.3 7.5 
+                          C18.7 7.9 19.3 7.9 19.7 7.5 
+                          L22.1 5.1 
+                          C22.5 4.6 23.2 4.7 23.3 5.3 
+                          C23.7 7 23.2 8.8 22 10 
+                          C20.5 11.4 18.7 11.9 17 11.5 
+                          L8.5 20
+                          A3.18 3.18 0 0 1 4 20
+                          A3.18 3.18 0 0 1 4 15.5 Z" />
                 </g>
               </svg>
             </button>
+
             <button type="button" class="overlay-btn trigger-info" aria-label="Open Info Panel" onclick="toggleInfoModal(true)">
-              <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
                 <!-- Outer sharp circle with your exact background color -->
-                <circle cx="12" cy="12" r="10" fill="#FF8C00" />
-                
-                <!-- Fluid, curvy, italicized serif glyph rendering matching your reference image -->
+                <circle cx="12" cy="12" r="10" fill="#FDB620" />
                 <text x="11.8" y="16.5" 
                       font-family="'Georgia', 'Times New Roman', serif" 
                       font-size="14px"
@@ -91,21 +92,24 @@
                       text-anchor="middle">i</text>
               </svg>
             </button>
+
             <button type="button" class="overlay-btn trigger-bottom" id="arrowsToggleBtn" aria-label="Open Movement Drawer">
-              <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <!-- Vertical Arrow Axis Line and Pointers -->
-                <path d="M12 2v20" />
-                <path d="m15 5-3-3-3 3" />
-                <path d="m9 19 3 3 3-3" />
-                
-                <!-- Horizontal Arrow Axis Line and Pointers -->
-                <path d="M22 12H2" />
-                <path d="m19 9 3 3-3 3" />
-                <path d="m5 15-3-3 3-3" />
+              <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Center Intersecting Cross Lines -->
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <!-- Top Arrow -->
+                <path d="M12 1.5 L16.5 6.5 C14.5 5.5 13.5 5.5 12 6 C10.5 5.5 9.5 5.5 7.5 6.5 Z" fill="currentColor" stroke="none" />
+                <!-- Bottom Arrow -->
+                <path d="M12 22.5 L16.5 17.5 C14.5 18.5 13.5 18.5 12 18 C10.5 18.5 9.5 18.5 7.5 17.5 Z" fill="currentColor" stroke="none" />
+                <!-- Left Arrow -->
+                <path d="M1.5 12 L6.5 7.5 C5.5 9.5 5.5 10.5 6 12 C5.5 13.5 5.5 14.5 6.5 16.5 Z" fill="currentColor" stroke="none" />
+                <!-- Right Arrow (FIXED: Moved left to join perfectly back onto the main horizontal line) -->
+                <path d="M22.5 12 L17.5 7.5 C18.5 9.5 18.5 10.5 18 12 C18.5 13.5 18.5 14.5 17.5 16.5 Z" fill="currentColor" stroke="none" />
               </svg>
             </button>
 
-            <!-- HELP MODAL PANEL -->
+            <!-- INFO MODAL PANEL -->
             <div id="infoModal" class="info-modal-overlay">
               <div class="info-modal-box">
                 <button type="button" class="close-modal-btn" aria-label="Close Guide" onclick="toggleInfoModal(false)">&times;</button>
@@ -127,11 +131,12 @@
         <!-- DRAWERS (Outside main canvas workflow) -->
         <div class="app-drawer drawer-left-sidebar" id="configDrawer">
           <div class="drawer-panel-header">
-            <h3>Configuration Controls</h3>
+            <h3>Building Input</h3>
             <button type="button" class="drawer-panel-close" id="configCloseBtn">&times;</button>
           </div>
           <div class="drawer-panel-body">
             <div class="slidecontainer">
+
               <h3>Building Parameters</h3>
               <div class="parameter-control-row">
                 <label class="form-title-label">Length (m):</label>
@@ -170,18 +175,65 @@
               </div>
             </div>
             <div class="non-slider-controls">
-              <p><label for="areaList">Area:</label>
+              <p><label for="areaList">Building Location:</label>
                 <select id="areaList" name="areaList">
                   <option value="city1">City 1</option>
                   <option value="city2">City 2</option>
                   <option value="city3">City 3</option>
                 </select>
               </p>
+
+              <p></p>
+              <h3>Generate Model</h3>
               <p>Building: <button id="button_Building" name="button_Building" type="button" onclick="genButtonClick(this.id)">Generate</button></p>
               <p>Framing: <button id="button_Framing" name="button_Framing" type="button" onclick="genButtonClick(this.id)">Generate</button></p>
               <p>Details: <button id="button_Detail" name="button_Detail" type="button" onclick="genButtonClick(this.id)">Generate</button></p>
-              <p class="body-small">Want to get the plans to build?</p>
-              <p><button id="inputSubmit" name="inputSubmit" type="submit" class="submit-btn">Submit Form</button></p>
+              <p>Accessory: <button id="button_Accessory" name="button_Accessory" type="button" onclick="genButtonClick(this.id)">Generate</button></p>
+              <p><button id="button_Clear" name="button_Clear" type="button" onclick="genButtonClick(this.id)">Clear Model</button></p>
+
+              <p></p>
+              <h3>Next Steps</h3>
+              <p class="body-small">If you would like the structural engineering plans for this model or more information, please fill in the form below and click the "Submit" button.</p>
+              <div class="form-field-group">
+                <input type="text" id="firstName" name="firstName" placeholder="First Name" required class="text-input-field">
+              </div>
+
+              <div class="form-field-group">
+                <input type="text" id="lastName" name="lastName" placeholder="Last Name" required class="text-input-field">
+              </div>
+
+              <div class="form-field-group">
+                <input type="text" id="company" name="company" placeholder="Company/Organization (optional)" class="text-input-field">
+              </div>
+
+              <div class="form-field-group">
+                <input type="email" id="email" name="email" placeholder="Email Address" required class="text-input-field">
+              </div>
+
+              <div class="checkbox-group-container">
+                <label class="group-title">I'm interested in:</label>
+                
+                <label class="checkbox-label">
+                  <input type="checkbox" name="request_plans" value="Yes">
+                  <span>Structural Engineering Plans</span>
+                </label>
+
+                <label class="checkbox-label">
+                  <input type="checkbox" name="request_3dmodel" value="Yes">
+                  <span>3D Model</span>
+                </label>
+
+                <label class="checkbox-label">
+                  <input type="checkbox" name="request_moreinfo" value="Yes">
+                  <span>More Information</span>
+                </label>
+              </div>
+
+              <div class="form-field-group">
+                <textarea id="message" name="message" rows="4" maxlength="1000" placeholder="Message (optional)" class="textarea-input-field"></textarea>
+                <div id="charCounter" style="font-family: 'Urbanist', sans-serif; font-size: 11px; color: #6b7280; text-align: right; margin-top: 4px;">1000 characters remaining</div>
+              </div>
+              <p><button id="inputSubmit" name="inputSubmit" type="submit" class="submit-btn">Submit</button></p>
             </div>
           </div>
         </div>
@@ -219,11 +271,15 @@
         </div>
       </div>
     </form>
+
     <footer class="site-footer">
         <p>&copy; 2026 Company Name. All rights reserved.</p>
     </footer>
   </div>
+
   <script src="assets/menu-style.js"></script>
+  <script src="assets/form-events.js"></script>
   <script src="assets/simulator-button-events.js"></script>
+
 </body>
 </html>

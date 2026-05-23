@@ -14,8 +14,53 @@
 
 .inline-row-container { display: flex; gap: 8px; height: 82px; align-items: flex-end; padding-bottom: 2px; }
 
-/* Square Gamepad Grid Caps */
+/* Gamepad Grid Caps */
 .game-key {
-  width: 40px; height: 40px; background: #ffffff; color: #000000; border: 1px solid #000000; border-radius: 0px; font-size: 1rem; font-weight: 500;
+  width: 40px; height: 40px; background: #ffffff; color: #000000; border: 1px solid #000000; border-radius: 6px; font-size: 1rem; font-weight: 500;
   cursor: pointer; display: flex; align-items: center; justify-content: center; user-select: none; -webkit-user-select: none;
+}
+
+/* ==========================================================================
+UNIFIED PANEL CLOSE "X" BUTTON SYSTEM (Grouped for Easy Maintenance)
+========================================================================== */
+.close-modal-btn,
+.drawer-panel-close,
+.drawer-close-direct {
+  background: transparent !important;
+  border: none !important;
+  color: #333333 !important;
+  font-size: 22px !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  min-width: auto !important;
+  line-height: 1 !important;
+  transition: color 0.2s ease !important;
+}
+
+/* Hover Interactivity Style Alignment */
+.close-modal-btn:hover,
+.drawer-panel-close:hover,
+.drawer-close-direct:hover {
+  color: #FDB620 !important; /* Unified bright orange-red hover state */
+}
+
+/* Precise Close Button Positions */
+.close-modal-btn {
+  position: absolute !important;
+  top: 8px !important;
+  right: 12px !important;
+}
+
+.drawer-panel-close {
+  /* Inherits flex flow alignment inside header but locks standard text size */
+  font-size: 22px !important; 
+}
+
+.drawer-close-direct {
+  position: absolute !important;
+  top: 15px !important;
+  right: 25px !important;
+  z-index: 35 !important;
 }

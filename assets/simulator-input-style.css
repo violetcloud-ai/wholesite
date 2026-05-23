@@ -1,77 +1,38 @@
-.overlay-btn {
-  position: absolute;
-  z-index: 15;
-  width: 46px;
-  height: 46px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.8rem;
-  transition: transform 0.2s ease;
-}
-
-.overlay-btn:hover { transform: scale(1.1); }
-
-/* Preserving Slider Appearance Elements */
-.slider-row { display: flex; align-items: center; gap: 12px; }
-.slider { flex: 1; -webkit-appearance: none; appearance: none; height: 6px; background: #cbd5e1; border-radius: 3px; outline: none; }
-.slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #a855f7; cursor: pointer; }
-.slider::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: #a855f7; cursor: pointer; border: none; }
-
-.numbox-input { width: 55px; height: 28px; border: 1px solid #000000; border-radius: 0px; text-align: center; font-size: 0.95rem; }
-
-.non-slider-controls p { display: flex; align-items: center; justify-content: space-between; margin: 14px 0; font-weight: bold; }
-.non-slider-controls button, .non-slider-controls .submit-btn {
-  background: transparent; color: #a855f7; border: 2px solid #a855f7; border-radius: 6px; padding: 4px 14px; font-size: 0.9rem; cursor: pointer; transition: all 0.15s ease;
-}
-.non-slider-controls button:hover, .non-slider-controls .submit-btn:hover { background: #a855f7; color: #ffffff; }
-.submit-btn { width: 60%; height: 42px; margin-top: 10px; }
-
-/* Normalized Alignment Profile for all Workspace Icons */
-.trigger-left, .trigger-info, .trigger-bottom {
+/* UNIQUE SIMULATOR OVERLAYS CONTROLS */
+.overlay-btn, .trigger-left, .trigger-info, .trigger-bottom {
   position: absolute !important;
   z-index: 15;
-  width: 46px;
-  height: 46px;
-  background: transparent !important;
-  border: none !important;
-  border-radius: 0px !important; /* Strips old mobile styling constraints */
-  cursor: pointer;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 0 !important;
-  margin: 0 !important;
+  width: 46px; height: 46px;
+  background: transparent !important; border: none !important; border-radius: 0px !important;
+  cursor: pointer; display: flex !important; align-items: center !important; justify-content: center !important;
   transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+.overlay-btn:hover, .trigger-left:hover, .trigger-info:hover, .trigger-bottom:hover { transform: scale(1.1) !important; }
+.trigger-left { top: 15px; left: 15px; color: #111111; }
+.trigger-info { top: 15px; right: 15px; }
+.trigger-bottom { bottom: 20px; right: 20px; color: #111111; }
+.trigger-left svg, .trigger-info svg, .trigger-bottom svg { width: 35px !important; height: 35px !important; display: block; }
 
-.trigger-left:hover, .trigger-info:hover, .trigger-bottom:hover {
-  transform: scale(1.1) !important;
+/* DYNAMIC NUMBOX ELEMENTS */
+.numbox-input, .non-slider-controls select {
+  font-family: 'IBM Plex Mono', monospace !important;
+  width: 65px; height: 28px; border: 1px solid #000000 !important; border-radius: 0px !important; 
+  text-align: center; text-align-last: center; font-size: 0.95rem; background-color: #ffffff; color: #111827; box-sizing: border-box;
 }
+.non-slider-controls select { width: auto !important; min-width: 85px; padding: 0 6px; cursor: pointer; }
 
-/* Precise Edge Positioning Matrix */
-.trigger-left {
-  top: 15px;
-  left: 15px;
-  color: #111111;
-}
+/* SLIDER CONTROLS GRID */
+.slider-row { display: flex; align-items: center; gap: 12px; }
+.slider { flex: 1; -webkit-appearance: none; appearance: none; height: 6px; background: #cbd5e1; border-radius: 3px; outline: none; }
+.slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: #813F9B; cursor: pointer; }
+.slider::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: #813F9B; cursor: pointer; border: none; }
 
-.trigger-info {
-  top: 15px;
-  right: 15px;
-}
+.non-slider-controls p { display: flex; align-items: center; justify-content: space-between; margin: 14px 0; }
+.non-slider-controls button { background: transparent; color: #813F9B; border: 2px solid #813F9B; border-radius: 6px; padding: 4px 14px; font-size: 0.9rem; cursor: pointer; transition: all 0.15s ease; }
+.non-slider-controls button:not(.submit-btn):hover { background: #813F9B; color: #ffffff; }
 
-.trigger-bottom {
-  bottom: 20px;
-  right: 20px;
-  color: #111111;
-}
-
-.trigger-left svg, .trigger-info svg, .trigger-bottom svg {
-  width: 35px !important;
-  height: 35px !important;
-  display: block;
-}
+/* CHECKBOX INTERFACE CONTRASTS */
+.checkbox-group-container { margin: 16px 0; }
+.checkbox-group-container .group-title { display: block; font-family: 'Urbanist', sans-serif !important; font-size: 0.85rem; font-weight: bold; margin-bottom: 6px; }
+.checkbox-label { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; cursor: pointer; font-family: 'Urbanist', sans-serif !important; font-size: 0.85rem; color: #111827; }
+.checkbox-label input[type="checkbox"] { width: 14px; height: 14px; cursor: pointer; }

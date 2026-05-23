@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Title</title>
+    
+    <link rel="stylesheet" href="assets/general-style.css">
+    <link rel="stylesheet" href="assets/contact-style.css">
+    <link rel="stylesheet" href="assets/form-input-style.css">
+</head>
+<body>
+
+    <!-- Main content wrapper to push footer down -->
+    <div class="content-wrapper">
+        <header class="sticky-header" id="header">
+            <div class="nav-container">
+                <!-- Left: Brand Assets -->
+                <a href="index.html" class="brand">
+                    <img src="assets/img/logo1.jpg" alt="Logo" class="logo-img">
+                    <span class="brand-name">Company Name</span>
+                </a>              
+
+                <!-- Right: Navigation Menu -->
+                <nav>
+                    <button class="hamburger" aria-label="Toggle navigation" id="hamburger-btn">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+
+                    <ul class="nav-menu" id="nav-menu">
+                        <!-- About Dropdown Parent -->
+                        <li class="dropdown">
+                            <a href="#" class="nav-link">About <span class="arrow"></span></a>
+                            <ul class="submenu">
+                                <li><a href="#">Company</a></li>
+                                <li><a href="#">Services</a></li>
+                            </ul>
+                        </li>
+                        
+                        <!-- Projects Dropdown Parent -->
+                        <li class="dropdown">
+                            <a href="#" class="nav-link">Projects <span class="arrow"></span></a>
+                            <ul class="submenu">
+                                <li><a href="simulator.html">Building Simulator</a></li>
+                                <li><a href="#">Gallery</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li><a href="blog.html" class="nav-link">Blog</a></li>
+                        <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Reuse your signature responsive layout grid structure -->
+            <div class="blog-layout-grid">
+                
+                <!-- Left Column: The Contact Form Panel -->
+                  <form id="contact-form-wrapper" action="https://formsubmit.co/4e5006d1beb362e19e65e5b8e0fb8dac" method="POST">
+                    <input type="hidden" name="_next" value="https://google.com">
+                    <p style="margin-bottom: 20px;">If you would like to contact us, please fill in the form below and click the "Submit" button.</p>
+                    
+                    <div class="form-row-flex">
+                        <div class="form-field-group">
+                            <input type="text" id="firstName" name="firstName" placeholder="First Name" required class="text-input-field">
+                        </div>
+
+                        <div class="form-field-group">
+                            <input type="text" id="lastName" name="lastName" placeholder="Last Name" required class="text-input-field">
+                        </div>
+                    </div>
+
+                    <div class="form-field-group">
+                        <input type="text" id="company" name="company" placeholder="Company/Organization (optional)" class="text-input-field">
+                    </div>
+
+                    <div class="form-field-group">
+                        <input type="email" id="email" name="email" placeholder="Email Address" required class="text-input-field">
+                    </div>
+
+                    <div class="form-field-group">
+                        <textarea id="message" name="message" rows="5" maxlength="1000" placeholder="Message (optional)" class="textarea-input-field"></textarea>
+                        <div id="charCounter" style="font-family: 'Urbanist', sans-serif; font-size: 11px; color: #6b7280; text-align: right; margin-top: 4px;">1000 characters remaining</div>
+                    </div>
+
+                    <button id="inputSubmit" name="inputSubmit" type="submit" class="submit-btn">Submit</button>
+                </form>
+
+                <!-- Right Column: Sidebar Social Media Channels Panel -->
+                <aside class="blog-sidebar">
+                    <div class="sidebar-widget">
+                        <h3>Connect With Us</h3>
+                        <p class="body-small" style="color: #4b5563; margin-bottom: 20px;">Follow our official digital social profiles to keep track of development loops and updates.</p>
+                        
+                        <ul class="archive-list">
+                            <li>
+                                <a href="https://linkedin.com" target="_blank" rel="noopener">
+                                    <span class="social-link-content">
+                                        <!-- LinkedIn Icon -->
+                                        <svg viewBox="0 0 24 24" class="social-icon"><path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.8v8.37h2.8v-4.67c0-.25.02-.5.1-.68a1.14 1.14 0 0 1 1-.77c.76 0 1 .58 1 1.42v4.7zM6.5 8.37a1.37 1.37 0 1 0 0-2.75 1.37 1.37 0 0 0 0 2.75M8 18.5V10.13H5.2V18.5z"/></svg>
+                                        LinkedIn
+                                    </span>
+                                    <span class="archive-count">&rarr;</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com" target="_blank" rel="noopener">
+                                    <span class="social-link-content">
+                                        <!-- GitHub Icon -->
+                                        <svg viewBox="0 0 24 24" class="social-icon"><path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.1.39-1.99 1.03-2.69-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.7 1.03 1.6 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"/></svg>
+                                        GitHub
+                                    </span>
+                                    <span class="archive-count">&rarr;</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://x.com" target="_blank" rel="noopener">
+                                    <span class="social-link-content">
+                                        <!-- X (Twitter) Icon -->
+                                        <svg viewBox="0 0 24 24" class="social-icon"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                                        X / Twitter
+                                    </span>
+                                    <span class="archive-count">&rarr;</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://instagram.com" target="_blank" rel="noopener">
+                                    <span class="social-link-content">
+                                        <!-- Instagram Icon -->
+                                        <svg viewBox="0 0 24 24" class="social-icon"><path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4zm4.4 3a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m5-2.5a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1"/></svg>
+                                        Instagram
+                                    </span>
+                                    <span class="archive-count">&rarr;</span>
+                                </a>
+                            </li>
+                            <!-- YouTube Link and Icon -->
+                            <li>
+                                <a href="https://youtube.com" target="_blank" rel="noopener">
+                                    <span class="social-link-content">
+                                        <!-- Corrected, Aspect-Balanced YouTube Icon -->
+                                        <svg viewBox="0 0 24 24" class="social-icon"><path fill="currentColor" d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.516 0-9.387.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.507 9.388.507 9.388.507s7.516 0 9.387-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                                        YouTube
+                                    </span>
+                                    <span class="archive-count">&rarr;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+
+            </div>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Company Name. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/menu-style.js"></script>
+    <script src="assets/form-events.js"></script>
+
+</body>
+</html>

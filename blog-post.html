@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article View</title>
+    <link rel="stylesheet" href="assets/general-style.css">
+    <link rel="stylesheet" href="assets/blog-style.css">
+</head>
+<body>
+
+    <div class="content-wrapper">
+        <!-- Header Template Matches blog.html -->
+        <header class="sticky-header" id="header">
+            <div class="nav-container">
+                <a href="index.html" class="brand">
+                    <img src="assets/img/logo1.jpg" alt="Logo" class="logo-img">
+                    <span class="brand-name">Company Name</span>
+                </a>              
+                <nav>
+                    <ul class="nav-menu" id="nav-menu">
+                        <li><a href="blog.html" class="nav-link">Back to Blog</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Single Article Canvas -->
+        <main class="main-content">
+            <div id="single-post-container">
+                <!-- JavaScript will populate the chosen article here -->
+            </div>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Company Name. All rights reserved.</p>
+    </footer>
+
+    <!-- Shares your centralized master database -->
+    <script src="assets/menu-style.js"></script>
+    <script src="assets/blog-data.js"></script>
+    <script src="assets/blog-events.js"></script>
+    <script>
+        // Inline router runner execution logic for single page presentation frames
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('single-post-container');
+            if (!container) return;
+
+            // Extract the query parameter string from the URL window address
+            const urlParams = new URLSearchParams(window.location.search);
+            const targetParam = urlParams.get('article');
+
+            if (!targetParam) {
+                container.innerHTML = `<h2>Post Not Found</h2><p><a href="blog.html">Return to blog feed</a></p>`;
+                return;
+            }
+
+            // Look up matching record entries in our unified database array
+            const matchedPost = ALL_BLOG_POSTS.find(post => {
+                const computedParam = encodeURIComponent(post.title.toLowerCase().replace(/ /g, '-'));
+                return computedParam === targetParam;
+            });
+
+            if (matchedPost) {
+                // Update document page titles tab
+                document.title = `${matchedPost.title} - Company Name`;
+
+                const tagsMarkup = matchedPost.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+                
+                // Render the complete article content layout
+                container.innerHTML = `
+                    <article class="full-blog-post">
+                        <div class="post-meta" style="margin-bottom: 15px;">${matchedPost.date}</div>
+                        <h1 class="single-post-headline" style="font-size: 42px; margin-bottom: 25px;">${matchedPost.title}</h1>
+                        <div class="post-content" style="font-size: 19px; line-height: 1.7; color: #374151;">
+                            <p>${matchedPost.content}</p>
+                            <p style="margin-top: 20px; color: #6b7280; font-style: italic;">Thank you for reading! This template can easily be expanded to include comments or newsletter subscription fields below.</p>
+                        </div>
+                        <div class="post-tags" style="margin-top: 35px; border-top: 1px solid #f3f4f6; padding-top: 20px;">
+                            ${tagsMarkup}
+                        </div>
+                        <p style="margin-top: 40px;"><a href="blog.html" style="color: #813F9B; font-weight: 600; text-decoration: none;">&larr; Back to Main Blog Feed</a></p>
+                    </article>
+                `;
+            } else {
+                container.innerHTML = `<h2>Article Not Found</h2><p><a href="blog.html">Return to blog feed</a></p>`;
+            }
+        });
+    </script>
+</body>
+</html>

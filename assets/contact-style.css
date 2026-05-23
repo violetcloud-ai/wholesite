@@ -1,0 +1,208 @@
+/* ==========================================================================
+1. CONTACT FORM ELEMENT PANELS STYLING
+========================================================================== */
+
+/* Overriding main-content bounds to carry the 1200px column grid matching your system layout */
+.main-content {
+    max-width: 1200px !important; 
+    margin: 30px auto 60px auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* Form background container panel formatting styling */
+#contact-form-wrapper {
+    background-color: #f9fafb; /* Light grey block backdrop canvas */
+    border: 1px solid #f3f4f6;
+    border-radius: 8px;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px; /* Uniform clean breathing spacing margin split between field tags */
+}
+
+/* Base input form field properties formatting */
+.text-input-field,
+.textarea-input-field {
+    width: 100%;
+    padding: 12px 14px;
+    font-family: 'Urbanist', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #111827;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Lock textareas to stay vertical resize boundaries only to preserve design shapes */
+.textarea-input-field {
+    resize: vertical;
+}
+
+/* Apply brand purple glow highlight accents on interactive item form focus triggers */
+.text-input-field:focus,
+.textarea-input-field:focus {
+    border-color: #813F9B;
+    box-shadow: 0 0 0 3px rgba(129, 63, 155, 0.15);
+}
+
+/* Submit Interactive Command Button Properties Styles rules */
+.submit-btn {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #813F9B; /* Core signature brand purple color style */
+    color: #ffffff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    cursor: pointer;
+    align-self: flex-start; /* Keeps button size bound cleanly to text length width size */
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.submit-btn:hover {
+    background-color: #6a3280;
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
+}
+
+/* Mobile landscape adjustments to give small screen fields padding space */
+@media (max-width: 768px) {
+    #contact-form-wrapper {
+        padding: 20px;
+    }
+}
+
+/* ==========================================================================
+2. CONTACT DRAWER SIDEBAR & SOCIAL LINKS MENU STYLING
+========================================================================== */
+
+/* Structure configuration for the sidebar widget container */
+.sidebar-widget {
+    background-color: #f9fafb;
+    border-radius: 8px;
+    padding: 25px;
+    border: 1px solid #f3f4f6;
+    font-family: 'Urbanist', sans-serif;
+}
+
+.sidebar-widget h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827;
+    border-bottom: 2px solid #813F9B; /* Core purple accent row decoration border line */
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+/* Active grid structure matching your blog page wireframe */
+.blog-layout-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px; /* Form takes the left space, sidebar locks to 300px */
+    gap: 50px;
+    align-items: start;
+    width: 100%;
+}
+
+/* Overriding main-content bounds to carry the 1200px column grid safely */
+.main-content {
+    max-width: 1200px !important; 
+    margin: 30px auto 60px auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.archive-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.archive-list li {
+    margin-bottom: 12px;
+}
+
+.archive-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* Individual social channel click choices */
+.archive-list a {
+    color: #4b5563 !important; /* Forces your original slate grey over automated post content link overrides */
+    text-decoration: none !important; /* Keeps lines clean, preventing auto underline bleed */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+/* Changes to signature purple and slides text slightly when hovered */
+.archive-list a:hover {
+    color: #813F9B !important;
+    padding-left: 4px; 
+}
+
+/* Right-hand side arrows inside the rows */
+.archive-count {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 16px;
+    color: #9ca3af;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.archive-list a:hover .archive-count {
+    color: #813F9B;
+}
+
+.social-link-content {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Spacing gap between the icon graphic and text string word */
+}
+
+/* Base vector graphic styling dimensions */
+.social-icon {
+    width: 20px;
+    height: 20px;
+    color: #6b7280; /* Matches your slate grey typography color style */
+    transition: color 0.2s ease;
+    display: block;
+}
+
+/* Forces the active icon to adapt color dynamically alongside text hover events */
+.archive-list a:hover .social-icon {
+    color: #813F9B; /* Changes to your brand purple color on hover */
+}
+
+/* ==========================================================================
+3. RESPONSIVE RECONSTRUCTIONS (Mobile Stacking Frameworks)
+========================================================================== */
+@media (max-width: 992px) {
+    /* Converts side-by-side desktop layout into a vertical stack on mobile portrait view */
+    .blog-layout-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    /* Forces the forms panel area to come first and social links sidebar to slide below it */
+    #contact-form-wrapper {
+        order: 1;
+        width: 100%;
+    }
+    
+    .blog-sidebar {
+        order: 2;
+        width: 100%;
+    }
+}

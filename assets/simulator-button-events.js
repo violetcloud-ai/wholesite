@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const movementContainer = document.getElementById('movementContainer');
   const keyToButtonId = {
     'a': 'button_A', 's': 'button_S', 'd': 'button_D', 'w': 'button_W',
-    'arrowup': 'button_I', 'arrowdown': 'button_K', 'arrowleft': 'button_J', 'arrowright': 'button_L',
-    ' ': 'button_F', 'x': 'button_X', 'g': 'button_G'
+    'i': 'button_I', 'k': 'button_K', 'j': 'button_J', 'l': 'button_L',
+    'f': 'button_F', 'x': 'button_X', 'g': 'button_G'
   };
 
   function updateButtonState(button, isHolding) {

@@ -1,0 +1,133 @@
+/* ==========================================================================
+ABOUT PAGE CONTENT ROW STYLING
+========================================================================== */
+
+/* Unified row container using your design system gaps */
+.content-row {
+    display: flex;
+    flex-direction: row;
+    gap: 50px; /* Matches your design grid gap spacing */
+    margin-bottom: 60px; /* Layout canvas breathing margin */
+    align-items: flex-start;
+}
+
+/* Typography styles matching your design token rules */
+.text-block h2 {
+    font-family: 'EB Garamond', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #111827;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.text-area p {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 18px;
+    color: #4b5563; /* Slate grey body typography color token */
+    line-height: 1.6;
+}
+
+/* Flex layout engine rules */
+.text-block {
+    flex: 1; 
+}
+
+/* Explicit container sizing for 500x500px images */
+.image-block {
+    flex: 0 0 500px;
+    width: 500px;
+    height: 500px;
+}
+
+/* Content block graphic canvas decoration rules */
+.content-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px; /* Consistent with your panel border radius system */
+    border: 1px solid #f3f4f6;
+}
+
+/* Handles the alternating layout on desktop views */
+.reverse-row {
+    flex-direction: row-reverse;
+}
+
+/* Styling for lists inside the main content sections */
+.text-area ul.content-list {
+    margin-bottom: 30px; /* Matches paragraph bottom breathing space */
+    padding-left: 20px;  /* Indents bullets cleanly */
+}
+
+.text-area ul.content-list li {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 18px;     /* Matches your exact paragraph sizing */
+    color: #4b5563;      /* Reuses your design system slate grey color */
+    line-height: 1.6;    /* Matches paragraph line height readability */
+    margin-bottom: 4px; /* Adds space between individual bullet points */
+}
+
+/* Removes the extra margin from the last bullet point */
+.text-area ul.content-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* 
+   Responsive Reconstructions 
+   Streamlined to match your layout breakpoint (992px)
+*/
+@media (max-width: 992px) {
+    .content-row {
+        flex-direction: column; /* Stacks all rows vertically */
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+    
+    /* 
+       Forces Section 2 to layout elements in an exact custom stack sequence:
+       Title 2 (Top) -> Image 2 (Middle) -> Text Area 2 (Bottom)
+    */
+    .reverse-row {
+        flex-direction: column; /* Reset to normal vertical column stacking */
+    }
+
+    /* Target components inside Section 2 to explicitly rearrange them */
+    .reverse-row .text-block {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Step 1: Force Title 2 to the absolute top of the section layout */
+    .reverse-row .text-block h2 {
+        order: 1; 
+    }
+
+    /* Step 2: Force Image 2 right underneath Title 2 */
+    .reverse-row .image-block {
+        order: 2; 
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        flex: initial;
+    }
+
+    /* Step 3: Force Text Area 2 underneath Image 2 */
+    .reverse-row .text-area {
+        order: 3; 
+    }
+
+    /* Standard mobile scale rule for Section 1 image */
+    .content-row .image-block,
+    .reverse-row .image-block {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        flex: initial;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

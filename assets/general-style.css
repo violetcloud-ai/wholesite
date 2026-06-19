@@ -27,7 +27,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 /* Fixes the top cutoff by turning off absolute/fixed overlapping */
@@ -307,7 +307,7 @@ a.brand:active {
 ========================================================================== */
 @media (max-width: 992px) {
     .content-wrapper {
-        overflow-x: hidden; 
+        overflow-x: clip; 
         width: 100%;
     }
     

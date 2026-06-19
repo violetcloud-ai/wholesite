@@ -84,7 +84,7 @@ FLOATING INFO WINDOW & OVERLAY MODAL SYSTEM
   color: #333333 !important;
   border-radius: 8px !important;
   width: 85% !important;
-  max-width: 320px !important;
+  max-width: 500px !important;
   padding: 20px !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
   position: relative !important;
@@ -109,61 +109,16 @@ FLOATING INFO WINDOW & OVERLAY MODAL SYSTEM
   margin: 0 !important;
 }
 
+#infoModal.active, 
+#resultsModal.active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: flex !important; /* Forces the flex centering layout to switch on */
+}
+
 /* ==========================================================================
-WORKSPACE VIEWPORT & APP DRAWERS
+APP DRAWERS
 ========================================================================== */
-.workspace-viewport {
-  position: relative;
-  width: 100%;
-  height: calc(100vh - 140px); 
-  overflow: hidden;
-  background-color: #f0f0f0;
-}
-
-.canvas-viewer-zone {
-  width: 100%;
-  height: 100%;
-}
-
-.iframe-canvas-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.iframe-canvas-container iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  display: block;
-}
-
-.floating-control-btn {
-  position: absolute;
-  z-index: 15;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: #ffffff;
-  color: #333333;
-  border: 2px solid #111111;
-  font-size: 1.4rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s ease;
-}
-
-.floating-control-btn:hover {
-  background-color: #f5f5f5;
-  transform: scale(1.08);
-}
-
-.btn-top-left { top: 25px; left: 25px; }
-.btn-top-right { top: 25px; right: 25px; }
-.btn-bottom-right { bottom: 25px; right: 25px; }
 
 .app-drawer {
   position: absolute;
@@ -208,56 +163,19 @@ WORKSPACE VIEWPORT & APP DRAWERS
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 160px;
+  height: 130px;
   background-color: rgba(255, 255, 255, 0.5) !important; 
   border-top: none !important; 
   z-index: 30;
   transform: translateY(100%); 
   transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 30px) !important;
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1)30px) !important;
+  /*-webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 30px) !important;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1)30px) !important;*/
 }
 
 .drawer-bottom-tray.pane-visible {
   transform: translate(0, 0) !important;
 }
-
-/* ==========================================================================
-SHORT SCREEN CONDITION (Fires if 160px takes up > 1/3 of iframe height)
-========================================================================== */
-@media screen and (max-height: 480px) {
-  .drawer-bottom-tray {
-    top: 0 !important;
-    bottom: 0 !important;
-    right: 0 !important;
-    left: auto !important;
-    width: 200px !important; 
-    height: 100% !important;  
-    transform: translateX(100%) !important; 
-    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 25px) !important;
-    mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 25px) !important;
-  }
-  
-  .control-console-layout {
-    flex-direction: column !important;
-    justify-content: flex-start !important;
-    gap: 15px !important;
-    padding: 45px 10px 20px 30px !important;
-    overflow-y: auto !important;
-  }
-
-  .cluster-label {
-    margin-top: 6px !important;
-    font-size: 0.75rem !important;
-  }
-}
-
-.app-drawer.pane-visible {
-  transform: translate(0, 0) !important;
-}
-
-.layout-flex-horizontal { display: flex; justify-content: space-around; align-items: flex-start; flex-wrap: wrap; }
-.control-dpad-section { min-width: 150px; }
 
 /* ==========================================================================
 CONSOLE MOVEMENT ENGINE INTERACTION DECK

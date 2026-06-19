@@ -16,7 +16,7 @@
     </script>
     
     <link rel="stylesheet" href="assets/general-style.css">
-    <link rel="stylesheet" href="assets/index-style.css">
+    <link rel="stylesheet" href="assets/about-style.css">
 </head>
 <body>
 
@@ -57,43 +57,38 @@
             </div>
         </header>
 
-        <section class="hero-section">
-            <!-- The Slider Container -->
-            <div class="hero-slider">
-                <div class="slide active">
-                    <img src="assets/img/slideshow/slide1.png" alt="Slideshow Image 1">
-                </div>
-                <div class="slide">
-                    <img src="assets/img/slideshow/slide2.png" alt="Slideshow Image 2">
-                </div>
-                <div class="slide">
-                    <img src="assets/img/slideshow/slide3.png" alt="Slideshow Image 3">
-                </div>
-            </div>
-
-            <!-- Opaque Overlay Box Content -->
-            <div class="hero-overlay-box">
-                <h1>Exceptional Design</h1>
-                <p>This layout uses smooth crossfade animations to cycle your target background elements automatically while preserving readability scales.</p>
-                <a href="#" class="hero-cta-btn">Explore Projects</a>
-            </div>
-        </section>
-
         <main class="main-content">
-        <h1>This is Header 1 (EB Garamond)</h1>
-        <p>This is a body paragraph text using the Urbanist font family set to 18px. It is highly readable and designed to wrap fluidly on any screen scale. Scroll down to see the smart sticky header dynamically contract and slide away out of view.</p>
-        
-        <h2>This is Header 2 (EB Garamond)</h2>
-        <p>As you scroll back upward on the trackpad or mouse wheel, notice that the menu reappears instantly so users can jump quickly to another view without scrolling all the way back to the top of the site page layout.</p>
-        <p class="body-small">This is your new 14px Urbanist regular text style. It is ideal for metadata, form helper fields, or copyright footers.</p>
+            <!-- Section 1: Text Left, Image Right -->
+            <section class="content-row">
+                <div class="text-block">
+                    <h2>Title 1</h2>
+                    <div class="text-area">
+                        <p>This is Text area 1. It sits on the left side of the row on desktop screens and expands automatically to fill the available horizontal space next to the image box.</p>
+                    </div>
+                </div>
+                <div class="image-block">
+                    <img src="assets/img/image1.jpg" alt="Image 1 description" class="content-img" width="500" height="500">
+                </div>
+            </section>
 
-        <h1>This is Header 1 (EB Garamond)</h1>
-        <p>This is a body paragraph text using the Urbanist font family set to 18px. It is highly readable and designed to wrap fluidly on any screen scale. Scroll down to see the smart sticky header dynamically contract and slide away out of view.</p>
-        
-        <h2>This is Header 2 (EB Garamond)</h2>
-        <p>As you scroll back upward on the trackpad or mouse wheel, notice that the menu reappears instantly so users can jump quickly to another view without scrolling all the way back to the top of the site page layout.</p>
-        <p class="body-small">This is your new 14px Urbanist regular text style. It is ideal for metadata, form helper fields, or copyright footers.</p>
+            <!-- Section 2: Image Left, Text Right (Alternating) -->
+            <section class="content-row reverse-row">
+                <div class="text-block">
+                    <h2>Title 2</h2>
+                    <div class="text-area">
+                        <p>This is Text area 2. It sits on the right side of the row on desktop screens. The framework automatically reverses the column order while keeping titles correctly aligned.</p>
+                        <ul class="content-list">
+                            <li>This is item 1</li>
+                            <li>This is item 2</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="image-block">
+                    <img src="assets/img/image2.jpg" alt="Image 2 description" class="content-img" width="500" height="500">
+                </div>
+            </section>
         </main>
+
     </div>
 
     <footer class="site-footer">
@@ -101,7 +96,6 @@
     </footer>
 
     <script src="assets/menu-style.js"></script>
-    <script src="assets/index-slideshow.js"></script>
 
 </body>
 </html>

@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website Title</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9ZFHB93F06"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-9ZFHB93F06');
+    </script>
     
     <link rel="stylesheet" href="assets/general-style.css">
     <link rel="stylesheet" href="assets/blog-style.css">
@@ -29,14 +39,7 @@
                     </button>
 
                     <ul class="nav-menu" id="nav-menu">
-                        <!-- About Dropdown Parent -->
-                        <li class="dropdown">
-                            <a href="#" class="nav-link">About <span class="arrow"></span></a>
-                            <ul class="submenu">
-                                <li><a href="#">Company</a></li>
-                                <li><a href="#">Services</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="about.html" class="nav-link">About</a></li>
                         
                         <!-- Projects Dropdown Parent -->
                         <li class="dropdown">
@@ -47,7 +50,7 @@
                             </ul>
                         </li>
                         
-                        <li><a href="blog.html" class="nav-link">Blog</a></li>
+                        <li><a href="blog.html" class="nav-link active">Blog</a></li>
                         <li><a href="contact.html" class="nav-link">Contact</a></li>
                     </ul>
                 </nav>

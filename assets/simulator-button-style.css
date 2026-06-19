@@ -21,7 +21,7 @@
 }
 
 /* ==========================================================================
-UNIFIED PANEL CLOSE "X" BUTTON SYSTEM (Grouped for Easy Maintenance)
+UNIFIED PANEL CLOSE "X" BUTTON SYSTEM
 ========================================================================== */
 .close-modal-btn,
 .drawer-panel-close,
@@ -63,4 +63,99 @@ UNIFIED PANEL CLOSE "X" BUTTON SYSTEM (Grouped for Easy Maintenance)
   top: 15px !important;
   right: 25px !important;
   z-index: 35 !important;
+}
+
+/* ==========================================================================
+ICON COLUMN AND SLIDE-OUT LABELS
+========================================================================== */
+.overlay-button-sidebar {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 10;
+}
+
+.overlay-btn {
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: visible; /* Crucial to let label slide out past button border */
+  white-space: nowrap;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+.hover-label {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #333333;
+  padding: 6px 12px;
+  border-radius: 4px;
+  position: absolute;
+  left: 45px; /* Safely offsets label past your 35px width icon */
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none; /* Prevents text block from intercepting clicks */
+}
+
+.overlay-btn:hover .hover-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* FORCE ICONS INTO A NEAT, STACKED SIDEBAR COLUMN */
+.iframe-canvas-container .overlay-btn {
+  position: absolute !important;
+  left: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 35px !important;
+  height: 35px !important;
+  overflow: visible !important; /* Vital to let hover text slide out past boundaries */
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+  z-index: 10 !important;
+}
+
+/* SPECIFIC HEIGHT POSITIONING FOR THE REQUESTED VERTICAL ORDER */
+#wrenchToggleBtn { top: 20px !important; }   /* 1. Wrench (BUILD) */
+#arrowsToggleBtn { top: 70px !important; }   /* 2. Arrow Cross (MOVE) */
+#resultsToggleBtn { top: 120px !important; } /* 3. Document (RESULTS) */
+.trigger-info { top: 170px !important; }     /* 4. Info (HELP) */
+
+/* BASE LABELS SLIDE OUT DESIGN */
+.hover-label {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #333333;
+  padding: 6px 12px;
+  border-radius: 4px;
+  position: absolute;
+  left: 45px; /* Safely offsets text window outside the 35px wide icon frame */
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none; /* Stops hover container from hijacking mouse events */
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* HOVER INTERACTION TRIGGER EFFECT */
+.overlay-btn:hover .hover-label {
+  opacity: 1;
+  transform: translateX(0);
 }

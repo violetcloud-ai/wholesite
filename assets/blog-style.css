@@ -13,9 +13,11 @@
 /* Base Desktop Grid layout */
 .blog-layout-grid {
     display: grid;
-    grid-template-columns: 1fr 300px; /* Posts take remaining space, sidebar is fixed at 300px */
+    /* Sidebar is locked to 300px, gap is 50px, and content naturally inherits the remaining ~810px */
+    grid-template-columns: 1fr 300px; 
     gap: 50px;
     align-items: start;
+    width: 100%;
 }
 
 /* Individual Post Card Structures */
@@ -146,6 +148,11 @@
     font-family: 'IBM Plex Mono', monospace;
     font-size: 14px;
     color: #9ca3af;
+}
+
+.blog-posts-feed {
+    max-width: 810px; /* Constrains the blog column to match the contact form's inner boundary */
+    width: 100%;
 }
 
 /* ==========================================================================
@@ -485,6 +492,15 @@ table.blog-data-table tbody tr:nth-child(even) {
     display: block;
 }
 
+.post-content img {
+    width: 100%;             /* Forces the image to stretch/shrink to the column edges */
+    max-width: 100%;         /* Prevents the asset from spilling outside the bounding box */
+    height: auto;            /* Maintains original aspect proportions without distorting */
+    border-radius: 8px;      /* Matches the rounded aesthetics of your brand theme */
+    display: block;          /* Removes lower sub-pixel whitespace tracking alignments */
+    margin: 25px auto;       /* Centers the image and adds breathing room top and bottom */
+}
+
 /* ==========================================================================
 12. DESKTOP ACCORDION BASE SETUP & DIVIDER LOCKS
 ========================================================================== */
@@ -599,4 +615,14 @@ table.blog-data-table tbody tr:nth-child(even) {
 @keyframes slideDownFade {
     from { opacity: 0; transform: translateY(-5px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+14. SINGLE POST PAGE TARGETED PROFILE LOCK
+========================================================================== */
+#single-post-container {
+    max-width: 810px; /* Forces blog-post.html to have the exact same width profile */
+    margin: 0 auto;   /* Centers the post cleanly inside the 1200px global frame */
+    width: 100%;
+    box-sizing: border-box;
 }

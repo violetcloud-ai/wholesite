@@ -1,5 +1,4 @@
 const header = document.getElementById('header');
-// FIXED: Changed ID selector string from 'hamburger' to 'hamburger-btn'
 const hamburger = document.getElementById('hamburger-btn');
 const navMenu = document.getElementById('nav-menu');
 
